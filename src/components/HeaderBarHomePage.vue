@@ -22,7 +22,7 @@
         </ul>
       </div>
       <div class="d-flex col-1 justify-content-center align-items-center">
-        <font-awesome-icon icon="fa-regular fa-user" />
+        <font-awesome-icon icon="fa-regular fa-user" class="user-icon" />
         <span @click="toggleMenu" class="user-name">{{ fullName }}</span>
       </div>
     </div>
