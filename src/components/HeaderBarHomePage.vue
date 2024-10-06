@@ -33,7 +33,7 @@
       <div class="dropdown-divider"></div>
       <a class="dropdown-item" href="#personalPage">Trang cá nhân</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#logout">Đăng xuất</a>
+      <a class="dropdown-item" @click="logout">Đăng xuất</a>
     </div>
     <RegisterUser v-if="isRegisterModalVisible" @close="isRegisterModalVisible = false" />
     <LoginUser v-if="isLoginModalVisible" @close="isLoginModalVisible = false" />
@@ -44,6 +44,7 @@
 import logo from '@/assets/images/logo.png'
 import RegisterUser from '@/modal/RegisterUser.vue'
 import LoginUser from '@/modal/LoginUser.vue'
+import { getUserFullName } from '@/utils/auth';
 
 export default {
   name: 'NavigationBar',
@@ -55,7 +56,7 @@ export default {
     return {
       logo,
       showMenu: false,
-      fullName: 'chi nguyen',
+      fullName: getUserFullName() ?? "Guest",
       isRegisterModalVisible: false,
       isLoginModalVisible: false
     }
@@ -76,13 +77,19 @@ export default {
     showLoginModal() {
       this.isLoginModalVisible = true
       this.showMenu = false
-    }
+    },
+    logout(){
+      try {
+        console.log("test")
+        this.$store.dispatch('logout');
+        this.$router.push('/'); 
+      } catch (error) {
+        console.error(error);
+      }
+    },
   },
   mounted() {
     document.addEventListener('click', this.handleClickOutside);
-  },
-  beforeDestroy() {
-    document.removeEventListener('click', this.handleClickOutside);
   }
 }
 </script>

@@ -57,7 +57,7 @@
   
   <script>
   import logo from '@/assets/images/logo.png'
-  
+  import { getUserFullName } from '@/utils/auth';
   export default {
     name: 'NavigationBar',
     data() {
@@ -67,7 +67,7 @@
         showRegisterDropdown: false,
         showListDropdown: false,
         showPaymentDropdown: false,
-        fullName: 'chi nguyen',
+        fullName: getUserFullName(),
         totalMoney: '1000 VND' // Example value, replace with actual data
       }
     },
@@ -95,9 +95,6 @@
     },
     mounted() {
       document.addEventListener('click', this.handleClickOutside);
-    },
-    beforeDestroy() {
-      document.removeEventListener('click', this.handleClickOutside);
     }
   }
   </script>

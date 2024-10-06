@@ -1,4 +1,2 @@
-export const COOKIE_DOMAIN = 'localhost'
+export const SYS_API_URL = import.meta.env.VITE_API_URL
 
-export const SYS_API_URL = `http://${COOKIE_DOMAIN}:4000`
- 
