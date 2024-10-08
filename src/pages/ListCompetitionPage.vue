@@ -121,21 +121,21 @@
   }
   
   .search-button {
-    margin-top: 25px;
-    background-color: #8B0000; /* Màu nền giống sidebar */
-    color: white;
-    border: none;
-    padding: 8px 12px; /* Giữ nguyên kích thước padding để không làm to nút */
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 25px; /* Tăng kích thước chữ */
-    line-height: 1; /* Căn chỉnh line height để không làm to nút */
-    transition: background-color 0.3s;
-    margin-right: 50px;
-  }
-  
+      margin-top: 10px;
+      background-color: #8b0000;
+      color: white;
+      border: none;
+      padding: 16px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 25px;
+      line-height: 1;
+      transition: background-color 0.3s;
+      margin-right: 50px;
+      width: 8%;
+    }
   .search-button:hover {
-    background-color: #a30000; /* Màu nền khi hover */
+    background-color: gray; /* Màu nền khi hover */
   }
   
   .add-button {
@@ -146,31 +146,41 @@
   }
   
   .table-container {
-    margin-top: 20px;
-    border: none; /* Loại bỏ viền ngoài cùng */
-    border-radius: 5px;
-    overflow: hidden;
-  }
-  
-  .contest-table {
-    width: 90%; /* Thay đổi width để giảm kích thước bảng */
-    margin: 0 auto; /* Căn giữa bảng */
-    border-collapse: separate; /* Tách các viền để chỉ giữ viền bên trong */
-    border-spacing: 0px; /* Khoảng cách giữa các ô */
-    font-size: larger;
-  }
-  
-  .contest-table th {
-    font-weight: bold; /* Làm cho tất cả các tiêu đề trong bảng in đậm */
-    text-align: center;
-  }
-  
-  .contest-table td {
-    padding: 12px 15px;
-    border: 1px solid #ddd; /* Giữ viền bên trong */
-    text-align: center;
-    font-size: larger;
-  }
+  margin-top: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.contest-table {
+  width: 90%;
+  margin: 0 auto;
+  border-collapse: separate;
+  border-spacing: 0px;
+  font-size: larger;
+}
+
+.contest-table th {
+  font-weight: bold;
+  text-align: center;
+  font-size: x-large;
+  width: 200px;
+  height: 70px;
+  border-bottom: 2px solid #ddd; /* Đường kẻ ngang */
+  border-top: none; /* Không có đường kẻ trên */
+  border-left: none; /* Không có đường kẻ dọc */
+  border-right: none; /* Không có đường kẻ dọc */
+}
+
+.contest-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd; /* Chỉ kẻ ngang */
+  border-top: none; /* Không có đường kẻ trên */
+  border-left: none; /* Không có đường kẻ dọc */
+  border-right: none; /* Không có đường kẻ dọc */
+  text-align: center;
+  font-size: large;
+}
+
   
   .contest-table thead {
     background-color: #b2b4b6; /* Màu xám nhạt cho tiêu đề */

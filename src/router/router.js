@@ -3,8 +3,12 @@ import HomePage from '@/pages/HomePage.vue'
 import CustomerPage from '@/pages/CustomerPage.vue'
 import AdminPage from '@/pages/AdminPage.vue'
 import ListCompetitionPage from '@/pages/ListCompetitionPage.vue'
+import ListRankCompetitionPage from '@/pages/ListRankCompetitionPage.vue'
+import ListRoundCompetitionPage from '@/pages/ListRoundCompetitionPage.vue'
+import ListFormatCompetitionPage from '@/pages/ListFormatCompetitionPage.vue'
+import ListRewardCompetitionPage from '@/pages/ListRewardCompetitionPage.vue'
 
-import CreateCompetition from '@/modal/CreateCompetition.vue'
+
 const routes = [
   {
     path: '/',
@@ -27,10 +31,24 @@ const routes = [
     component: ListCompetitionPage
   },
   {
-    path: '/create-competition',
-    name: 'CreateCompetition',
-    component: CreateCompetition
-  }
+    path: '/list-rank-competition',
+    name: 'ListRankCompetitionPage',
+    component: ListRankCompetitionPage
+  },
+  {
+    path: '/list-round-competition',
+    name: 'ListRoundCompetitionPage',
+    component: ListRoundCompetitionPage
+  },
+  {
+    path: '/list-format-competition',
+    name: 'ListFormatCompetitionPage',
+    component: ListFormatCompetitionPage
+  },{
+    path: '/list-reward-competition',
+    name: 'ListRewardCompetitionPage',
+    component: ListRewardCompetitionPage
+  },
 ]
 
 const router = createRouter({

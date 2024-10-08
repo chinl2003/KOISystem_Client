@@ -38,10 +38,10 @@ export default {
           tooltip: 'Quản lí cuộc thi',
           submenu: [
             { name: 'Danh sách cuộc thi', route: '/list-competition' },
-            { name: 'Danh sách hạng thi đấu'},
-            { name: 'Danh sách vòng thi đấu'},
-            { name: 'Danh sách hình thức thi đấu'},
-            { name: 'Danh sách giải thưởng'},
+            { name: 'Danh sách hạng thi đấu', route: '/list-rank-competition'},
+            { name: 'Danh sách vòng thi đấu', route: '/list-round-competition'},
+            { name: 'Danh sách hình thức thi đấu', route: '/list-format-competition'},
+            { name: 'Danh sách giải thưởng', route: '/list-reward-competition'},
           ],
         },
         {
@@ -121,6 +121,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  z-index: 1; /* Đặt z-index cho sidebar */
 }
 .sidebar.expanded {
   width: 200px;
@@ -145,15 +146,16 @@ export default {
   border-radius: 6px;
   padding: 5px;
   position: absolute;
-  z-index: 1;
-  left: 100%;
-  margin-left: 10px;
-  opacity: 0;
+  z-index: 10000; /* Đặt z-index cao hơn headerAdmin */
+  left: calc(100% + 10px); /* Đặt tooltip sang bên phải icon */
+  top: 50%; /* Đặt tooltip ở giữa của menu item */
+  transform: translateY(-50%); /* Căn giữa tooltip theo chiều dọc */
+  opacity: 0; /* Ẩn tooltip */
   transition: opacity 0.3s;
 }
 .menu-item:hover .tooltip {
   visibility: visible;
-  opacity: 1;
+  opacity: 1; /* Hiện tooltip khi hover */
 }
 .submenu {
   position: absolute;
