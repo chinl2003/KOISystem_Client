@@ -18,7 +18,7 @@
           <li class="nav-item" @click.stop="toggleDropdown('list')">
             <a class="nav-link" href="#">Danh sách <font-awesome-icon :icon="['fas', 'chevron-down']" class="chevron-icon" /></a>
             <ul v-if="showListDropdown" class="sub-menu">
-              <li><router-link class="dropdown-item" to="/list/koi">Danh sách cá Koi</router-link></li>
+              <li><router-link class="dropdown-item" to="/list-koi-fish">Danh sách cá Koi</router-link></li>
               <div class="dropdown-divider"></div>
               <li><router-link class="dropdown-item" to="/list/competition">Danh sách cuộc thi</router-link></li>
             </ul>

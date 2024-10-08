@@ -3,6 +3,7 @@ import HomePage from '@/pages/HomePage.vue'
 import CustomerPage from '@/pages/CustomerPage.vue'
 import AdminPage from '@/pages/AdminPage.vue'
 import RegisterKoiFishPage from '@/pages/RegisterKoiFishPage.vue'
+import ListKoiFishCustomerPage from '@/pages/ListKoiFishCustomerPage.vue'
 const routes = [
   {
     path: '/',
@@ -23,6 +24,11 @@ const routes = [
     path: '/register-koi-fish',
     name: 'RegisterKoiFishPage',
     component: RegisterKoiFishPage
+  },
+  {
+    path: '/list-koi-fish',
+    name: 'ListKoiFishCustomerPage',
+    component: ListKoiFishCustomerPage
   }
 ]
 
