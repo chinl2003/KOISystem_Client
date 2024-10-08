@@ -15,7 +15,7 @@
               <table class="contest-table">
                 <thead>
                   <tr>
-                    <th>Tên giải thức</th>
+                    <th>Tên giải thưởng</th>
                     <th>Mô tả</th>
                     <th>Giá trị</th>
                     <th></th> <!-- Thêm cột thao tác -->
