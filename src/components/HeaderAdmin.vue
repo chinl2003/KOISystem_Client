@@ -36,7 +36,7 @@
         logo,
         showMenu: false,
         fullName: 'chi nguyen',
-        totalMoney: '1000 VND' // Example value, replace with actual data
+        totalMoney: '1000 VND' 
       }
     },
     methods: {
@@ -53,21 +53,21 @@
     background-color: #b2b4b6 !important; 
   }
   .logo-img {
-    height: 80px; /* Increase logo size */
+    height: 80px; 
   }
   .brand-text {
-    font-size: 1.5rem; /* Increase brand text size */
+    font-size: 1.5rem; 
     color: white;
   }
   .nav-link {
-    font-size: 1.5rem; /* Increase Home text size */
+    font-size: 1.5rem; 
   }
   .user-icon, .fa-list {
-    font-size: 1.5rem; /* Increase icon size */
+    font-size: 1.5rem; 
     cursor: pointer;
   }
   .user-name {
-    font-size: 1.5rem; /* Increase user name text size */
+    font-size: 1.5rem; 
   }
   .modal {
     position: fixed;

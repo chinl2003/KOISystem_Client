@@ -95,7 +95,7 @@
     top: 0;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align items to the left */
+    align-items: flex-start; 
   }
   .sidebar.expanded {
     width: 200px;
@@ -109,7 +109,7 @@
   }
   .icon {
     font-size: 24px;
-    margin-left: 10px; /* Ensure icons are always aligned to the left */
+    margin-left: 10px; 
   }
   .tooltip {
     visibility: hidden;
@@ -132,9 +132,9 @@
   }
   .submenu {
     position: absolute;
-    top: 0; /* Align submenu with the top of the sidebar */
-    left: 60px; /* Position submenu to the right of the sidebar */
-    width: 140px; /* Adjust width to fit within expanded sidebar */
+    top: 0; 
+    left: 60px; 
+    width: 140px; 
     background-color: #8B0000;
     padding: 10px;
     display: flex;
