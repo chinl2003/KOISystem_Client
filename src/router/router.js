@@ -36,7 +36,6 @@ const routes = [
     path: '/list-koi-fish',
     name: 'ListKoiFishCustomerPage',
     component: ListKoiFishCustomerPage
-  }
   },
   {
     path: '/list-competition',
