@@ -7,7 +7,7 @@
           <div class="content">
             <div class="title-search-container">
               <h1 class="title">DANH SÁCH HÌNH THỨC THI ĐẤU</h1>
-              <button class="search-button">Tìm kiếm</button>
+              <button class="search-button" @click="openSearchModal">Tìm kiếm</button>
               <font-awesome-icon class="add-button" :icon="['fas', 'plus']" @click="openModal" />
             </div>
   
@@ -49,6 +49,12 @@
   
             <!-- Modal -->
             <CreateFormatCompetition v-if="showModal" @close="closeModal" />
+            <SearchModal 
+      v-if="showSearchModal" 
+      :isVisible="showSearchModal" 
+      @close="closeSearchModal" 
+      @search="handleSearch" 
+    />
           </div>
         </div>
       </div>
@@ -59,6 +65,7 @@
     import HeaderAdmin from '@/components/HeaderAdmin.vue';
     import SidebarAdmin from '@/components/SidebarAdmin.vue';
     import CreateFormatCompetition from '@/modal/CreateFormatCompetition.vue';
+    import SearchModal from '@/modal/SearchListFormatCompetition.vue';
     
     export default {
       name: 'ListCompetitionPage',
@@ -66,22 +73,30 @@
         HeaderAdmin,
         SidebarAdmin,
         CreateFormatCompetition,
+        SearchModal
       },
       data() {
-        return {
-          showModal: false, // Biến để theo dõi trạng thái modal
-        };
-      },
-      methods: {
-        openModal() {
-          this.showModal = true; // Mở modal khi click
-        },
-        closeModal() {
-          this.showModal = false; // Đóng modal
-        },
-      },
+    return {
+      showModal: false, // Biến để theo dõi trạng thái modal tạo hạng thi đấu
+      showSearchModal: false, // Biến để theo dõi trạng thái modal tìm kiếm
     };
-    </script>
+  },
+  methods: {
+    openModal() {
+      this.showModal = true; // Mở modal tạo hạng thi đấu khi click
+    },
+    closeModal() {
+      this.showModal = false; // Đóng modal tạo hạng thi đấu
+    },
+    openSearchModal() {
+      this.showSearchModal = true; // Mở modal tìm kiếm khi click
+    },
+    closeSearchModal() {
+      this.showSearchModal = false; // Đóng modal tìm kiếm
+    },
+  },
+};
+</script>
     
     <style scoped>
     .main-container {
