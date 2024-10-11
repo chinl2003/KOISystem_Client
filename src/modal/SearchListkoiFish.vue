@@ -26,7 +26,7 @@
             <option value="Từ chối">Từ chối</option>
           </select>
         </div>
-        <div class="form-group date-group"> <!-- Thêm lớp 'date-group' -->
+        <div class="form-group date-group"> 
   <label class="bold-label text-center" style="display:block;">Ngày đăng kí</label>
   <div class="date-range text-center">
     <div>
@@ -136,7 +136,7 @@ export default {
 .close-icon {
   cursor: pointer;
   font-size: 24px;
-  color: rgb(139, 4, 4); /* Màu sắc của nút đóng */
+  color: rgb(139, 4, 4); 
 }
 
 .modal-body {
@@ -145,13 +145,13 @@ export default {
 
 .form-group {
   margin-bottom: 20px;
-  padding-bottom: 10px; /* Khoảng cách dưới cùng của mỗi nhóm */
+  padding-bottom: 10px; 
 }
 
-.form-group:not(:last-child):not(.date-group) { /* Tạo đường line giữa các nhóm, bỏ đường line cuối cùng và nhóm date-group */
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Đường phân cách mờ */
-  padding-bottom: 20px; /* Tạo khoảng trống phía dưới đường line */
-  margin-bottom: 20px; /* Khoảng cách dưới cùng của mỗi nhóm */
+.form-group:not(:last-child):not(.date-group) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 20px;
+  margin-bottom: 20px; 
 }
 
 

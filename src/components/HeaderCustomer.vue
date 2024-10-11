@@ -20,7 +20,7 @@
             <ul v-if="showListDropdown" class="sub-menu">
               <li><router-link class="dropdown-item" to="/list-koi-fish">Danh sách cá Koi</router-link></li>
               <div class="dropdown-divider"></div>
-              <li><router-link class="dropdown-item" to="/list/competition">Danh sách cuộc thi</router-link></li>
+              <li><router-link class="dropdown-item" to="/list-competition-customer">Danh sách cuộc thi</router-link></li>
             </ul>
           </li>
           <li class="nav-item" @click.stop="toggleDropdown('payment')">

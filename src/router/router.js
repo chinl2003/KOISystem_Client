@@ -9,6 +9,7 @@ import ListRankCompetitionPage from '@/pages/ListRankCompetitionPage.vue'
 import ListRoundCompetitionPage from '@/pages/ListRoundCompetitionPage.vue'
 import ListFormatCompetitionPage from '@/pages/ListFormatCompetitionPage.vue'
 import ListRewardCompetitionPage from '@/pages/ListRewardCompetitionPage.vue'
+import ListCompetitionCustomerPage from '@/pages/ListCompetitionCustomerPage.vue'
 
 
 const routes = [
@@ -56,10 +57,16 @@ const routes = [
     path: '/list-format-competition',
     name: 'ListFormatCompetitionPage',
     component: ListFormatCompetitionPage
-  },{
+  },
+  {
     path: '/list-reward-competition',
     name: 'ListRewardCompetitionPage',
     component: ListRewardCompetitionPage
+  },
+  {
+    path: '/list-competition-customer',
+    name: 'ListCompetitionCustomerPage',
+    component: ListCompetitionCustomerPage
   },
 ]
 
