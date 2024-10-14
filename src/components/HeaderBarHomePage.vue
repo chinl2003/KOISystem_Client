@@ -1,12 +1,12 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
-      <div class="navbar-brand d-flex align-items-center col-3">
+    <div class="flex justify-between w-full items-center">
+      <div class="flex items-center">
         <img :src="logo" alt="Logo" class="logo-img" />
         <span class="brand-text">KOI SHOWCASE</span>
       </div>
-      <div class="collapse navbar-collapse col-8">
-        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+      <div class="flex gap-12">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 flex gap-24">
           <li class="nav-item">
             <a class="nav-link" href="#introduction">Giới thiệu</a>
           </li>
@@ -67,7 +67,7 @@ export default {
     },
     handleClickOutside(event) {
       if (!this.$el.contains(event.target)) {
-        this.showMenu = false;
+        this.showMenu = false
       }
     },
     showRegisterModal() {
@@ -89,36 +89,39 @@ export default {
     },
   },
   mounted() {
-    document.addEventListener('click', this.handleClickOutside);
+    document.addEventListener('click', this.handleClickOutside)
+  },
+  beforeDestroy() {
+    document.removeEventListener('click', this.handleClickOutside)
   }
 }
 </script>
 
-<style scoped>
+<style lang="css" scoped>
 .navbar {
-  background-color: #3a1493 !important; 
+  background-color: #3a1493 !important;
 }
 
 .logo-img {
-  max-height: 80px; 
+  max-height: 80px;
   margin-right: 0.5rem;
 }
 
 .brand-text {
-  font-size: 1.5rem; 
+  font-size: 1.5rem;
   color: white;
 }
 
 .navbar-nav {
   display: flex;
-  justify-content: space-around; 
+  justify-content: space-around;
   width: 100%;
 }
 
 .nav-link {
   color: white !important;
   font-size: 1.2rem;
-  text-align: center; 
+  text-align: center;
 }
 
 .d-flex .fa-user {
