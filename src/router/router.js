@@ -9,7 +9,7 @@ import ListRankCompetitionPage from '@/pages/ListRankCompetitionPage.vue'
 import ListRoundCompetitionPage from '@/pages/ListRoundCompetitionPage.vue'
 import ListFormatCompetitionPage from '@/pages/ListFormatCompetitionPage.vue'
 import ListRewardCompetitionPage from '@/pages/ListRewardCompetitionPage.vue'
-
+import store from "@/store/store";
 
 const routes = [
   {
@@ -67,17 +67,20 @@ const router = createRouter({
   history: createWebHistory('/'), 
   routes
 })
-router.beforeEach((to, from, next) => {
-  const publicPages = ['/']; 
-  const authRequired = !publicPages.includes(to.path);
-  const loggedIn = localStorage.getItem('user');
-
-  // trying to access a restricted page + not logged in
-  // redirect to login page
-  if (authRequired && !loggedIn) {
-    next('/');
-  } else {
-    next();
-  }
-});
+  router.beforeEach((to, from, next) => {
+    if (to.matched.some(record => record.meta.requiresAuth)) {
+      if (!store.getters.isAuthenticated) {
+        next({ name: 'Login' }); // Redirect to login if not authenticated
+      } else {
+        const userRoles = store.getters.roles;
+        const requiredRoles = to.meta.roles;
+        if (requiredRoles && !requiredRoles.some(role => userRoles.includes(role))) {
+          next({ name: 'Home' }); // Redirect to home if user lacks required role
+        } else {
+          next();
+        }
+      }
+    } else {
+      next();
+    }})
 export default router                                     
