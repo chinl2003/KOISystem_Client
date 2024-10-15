@@ -4,8 +4,8 @@
         <h2 class="form-title">ĐĂNG KÍ THÀNH VIÊN</h2>
         <form @submit.prevent="submitForm">
           <div class="form-group">
-            <label for="fullName">Họ và tên đệm:<span class="required">*</span></label>
-            <input type="text" id="fullName" v-model="form.fullName" required placeholder="Vui lòng nhập họ và tên đệm...">
+            <label for="fullName">Họ:<span class="required">*</span></label>
+            <input type="text" id="fullName" v-model="form.lastName" required placeholder="Vui lòng nhập họ và tên đệm...">
           </div>
   
           <div class="form-group">
@@ -17,10 +17,13 @@
             <label for="email">Email:<span class="required">*</span></label>
             <input type="email" id="email" v-model="form.email" @input="validateEmail" @blur="validateEmail" required placeholder="Vui lòng nhập email...">
           </div>
-  
+          <div class="form-group">
+            <label for="email">SĐT:<span class="required">*</span></label>
+            <input type="text" id="phone" v-model="form.phone" required placeholder="Vui lòng nhập SĐT...">
+          </div>
           <div class="form-group">
             <label for="dob">Ngày sinh:<span class="required">*</span></label>
-            <input type="text" id="dob" v-model="form.dob" required placeholder="Vui lòng nhập ngày sinh...">
+            <Datepicker type="text" id="dob" v-model="form.dob" required placeholder="Vui lòng nhập ngày sinh..."/>
           </div>
   
           <div class="form-group">
@@ -50,16 +53,21 @@
   <script>
   import { apiClient } from '@/api/axios';
 import { toastSuccess, toastWarning } from '@/utils/toast';
+import Datepicker from 'vue3-datepicker'
 
   export default {
     name: 'RegisterModal',
+    components: {
+      Datepicker
+    },
     data() {
       return {
         form: {
-          fullName: '',
+          lastName: '',
           firstName: '',
           email: '',
-          dob: '',
+          dob: null,
+          phone:"",
           username: '',
           password: '',
           confirmPassword: ''
@@ -71,7 +79,6 @@ import { toastSuccess, toastWarning } from '@/utils/toast';
         this.$emit('close')
       },
       submitForm() {
-        this.closeModal()
         this.register()
       },
       validateEmail() {
@@ -144,27 +151,38 @@ import { toastSuccess, toastWarning } from '@/utils/toast';
       this.passwordConfirmError = '';
     },
     register() {
-    if (!this.emailError) {
-      apiClient.post('/api/auth/register', {
-          username: this.username,
-          firstName: this.firstName,
-          lastName: this.lastName,
-          email: this.email,
-          phone: this.phone,
-          password: this.password,
-          roleId: 2,
-          isCustomer: true
+      console.log("====================================")
+      console.log("+++++++++++++++++++++++++++++++++")
+      const formData = new FormData();
+      formData.append('username', this.form.username);
+      formData.append('firstName', this.form.firstName);
+      formData.append('lastName', this.form.lastName);
+      formData.append('email', this.form.email);
+      formData.append('PhoneNumber', this.form.phone); // Ensure the casing matches
+      if (this.form.dob) {
+        formData.append('DateOfBirth', new Date(this.form.dob).toISOString());
+      }
+      formData.append('password', this.form.password);
+      formData.append('roleName', 'Member');
+      apiClient.post('/api/auth/create-user',formData, {
+        headers: {
+            'Content-Type': 'multipart/form-data' // This is crucial for form data
+        }
       })
       .then(response => {
       const data = response.data;
-      if (data.success) {
+      console.log(response)
+
+      if (data.statusCode == 200) {
         toastSuccess(data.message || 'Registration successful');
         const router = this.$router;
-        router.push('/'); 
+        router.push('/');
+        this.closeModal();
       } else {
-        toastWarning(data.message || 'An error occurred during registration');
+        console.log(data.errorMessage);
+        toastWarning(data.errorMessage || 'An error occurred during registration');
       }
-    })};
+    });
   },
     }
   }
@@ -214,7 +232,12 @@ import { toastSuccess, toastWarning } from '@/utils/toast';
     border: 1px solid #ccc;
     border-radius: 4px;
   }
-  
+  :deep(.datepicker__input) {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
   .button-group {
     display: flex;
     justify-content: center;

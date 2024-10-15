@@ -1,5 +1,5 @@
 <template>
-    <div class="full-screen-background" >
+    <div class="full-screen-background" :style="{ backgroundImage: `url(${backgroundImage})` }">
       <div class="signup-container">
         <h1>Create Your Account</h1>
         <form @submit.prevent="register">

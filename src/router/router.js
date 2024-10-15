@@ -15,7 +15,7 @@ import RegisterPage from '@/pages/RegisterPage.vue'
 
 const routes = [
   {
-    path: '/',
+    path: '',
     name: 'HomePage',
     component: HomePage
   },
@@ -31,51 +31,55 @@ const routes = [
   },
   {
     path: '/customer',
-    meta: { requiresAuth: true, role: ['Customer'] },
+    meta: { requiresAuth: true, role: ['Member'] },
     children: [
       {
         path: '',
+        name: 'HomePage',
+        meta: { requiresAuth: true },
+        component: HomePage
+      },
+      {
+        path: 'wallet',
         name: 'CustomerPage',
         meta: { requiresAuth: true },
         component: CustomerPage
       },
       {
-        path: '/register-koi-fish',
+        path: 'register-koi-fish',
         name: 'RegisterKoiFishPage',
         component: RegisterKoiFishPage
       },
       {
-        path: '/list-koi-fish',
+        path: 'list-koi-fish',
         name: 'ListKoiFishCustomerPage',
         component: ListKoiFishCustomerPage
       },
       {
-        path: '/list-competition',
+        path: 'list-competition',
         name: 'ListCompetitionPage',
         component: ListCompetitionPage
       },
       {
-        path: '/list-rank-competition',
+        path: 'list-rank-competition',
         name: 'ListRankCompetitionPage',
         component: ListRankCompetitionPage
       },
       {
-        path: '/list-round-competition',
+        path: 'list-round-competition',
         name: 'ListRoundCompetitionPage',
         component: ListRoundCompetitionPage
       },
       {
-        path: '/list-format-competition',
+        path: 'list-format-competition',
         name: 'ListFormatCompetitionPage',
         component: ListFormatCompetitionPage
       },{
-        path: '/list-reward-competition',
+        path: 'list-reward-competition',
         name: 'ListRewardCompetitionPage',
         component: ListRewardCompetitionPage
       },
     ]
-    
-    
   },
   {
     path: '/admin',
@@ -91,6 +95,7 @@ const router = createRouter({
 })
   router.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.requiresAuth)) {
+      console.log(store.getters.isAuthenticated);
       if (!store.getters.isAuthenticated) {
         next({ name: 'Login' }); // Redirect to login if not authenticated
       } else {

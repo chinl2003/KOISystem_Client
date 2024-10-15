@@ -21,8 +21,7 @@ import './index.css'
 library.add(fas, far, fab)
 const app = createApp(App)
 app.component('font-awesome-icon', FontAwesomeIcon)
-
+store.dispatch('checkAuth');
 app.use(router)
 app.use(store)
-
 app.mount('#app')
