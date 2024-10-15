@@ -5,7 +5,7 @@
         <img :src="logo" alt="Logo" class="logo-img" />
         <span class="brand-text">KOI SHOWCASE</span>
       </router-link>
-      <div class="collapse navbar-collapse col-9">
+      <div class="collapse navbar-collapse ">
         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
           <li class="nav-item" @click.stop="toggleDropdown('register')">
             <a class="nav-link" href="#">Đăng kí <font-awesome-icon :icon="['fas', 'chevron-down']" class="chevron-icon" /></a>
