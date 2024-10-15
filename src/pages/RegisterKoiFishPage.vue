@@ -115,7 +115,7 @@
   import FooterCustomer from '@/components/FooterCustomer.vue'
   import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
   import koi1 from '@/assets/images/koi1.png'
-  import axios from 'axios'
+  import { axiosPrivate } from '@/api/axios.js';
   
   export default {
     name: 'HomePage',
@@ -171,7 +171,7 @@ methods: {
         shape: this.koi.shape
       };
 
-      const koiResponse = await axios.post('/api/koifish', koiRequest);
+      const koiResponse = await axiosPrivate.post('/api/koifish', koiRequest);
 
       const koiFishId = koiResponse.data.id; 
       const certificateRequest = {
@@ -187,7 +187,7 @@ methods: {
         certificateUrl: this.certificate.certificateLink
       };
 
-      const certificateResponse = await axios.post('/api/certificate', certificateRequest);
+      const certificateResponse = await axiosPrivate.post('/api/certificate', certificateRequest);
       alert('Đăng ký thành công!');
     } catch (error) {
       console.error('Error:', error);
