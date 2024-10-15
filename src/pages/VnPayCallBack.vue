@@ -1,7 +1,7 @@
 <template>
     <div>
       <HeaderBarHomePage />
-      <div class="flex flex-col gap-12 px-[120px]">
+      <div class="tw-flex tw-flex-col tw-gap-12 px-[120px]">
         <h2>Processing Payment...</h2>
         <p v-if="loading">Validating payment with backend...</p>
         <p v-if="!loading && responseCode === '00'">Payment Successful!</p>
@@ -55,11 +55,6 @@
     padding: 20px;
   }
   
-  .custom-background {
-    @apply relative;
-    background:
-      url('@/assets/images/bg-intro-2.png') 870px 0px no-repeat,
-      url('@/assets/images/bg-intro-1.png') 40px 450px no-repeat;
-  }
+
   </style>
   

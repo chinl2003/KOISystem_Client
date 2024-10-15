@@ -118,6 +118,7 @@
   import { axiosPrivate } from '@/api/axios.js';
   import { useToast } from 'vue-toastification';
 import { useRouter } from 'vue-router';
+import { toastError, toastSuccess } from '@/utils/toast';
 
   
   export default {
@@ -163,8 +164,7 @@ methods: {
   },
   async submitForm() {
     try {
-      const toast = useToast();
-      const router = useRouter();
+      const router = this.$router;
       const koiRequest = {
         name: this.koi.name,
         age: this.koi.age,
@@ -193,11 +193,11 @@ methods: {
       };
 
       const certificateResponse = await axiosPrivate.post('/api/certificate', certificateRequest);
-      toast.success('Đăng ký thành công!');
+      toastSuccess('Đăng ký thành công!');
         router.push('/list-koi-fish');
       } catch (error) {
         console.error('Error:', error);
-        toast.error('Đăng ký thất bại. Vui lòng thử lại.');
+        toastError('Đăng ký thất bại. Vui lòng thử lại.');
       }
   },
   handlePhotoUpload(event) {

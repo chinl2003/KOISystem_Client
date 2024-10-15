@@ -18,7 +18,7 @@ import ListCompetitionCustomerPage from '@/pages/ListCompetitionCustomerPage.vue
 
 const routes = [
   {
-    path: '',
+    path: '/',
     name: 'HomePage',
     component: HomePage
   },
@@ -38,7 +38,7 @@ const routes = [
     children: [
       {
         path: '',
-        name: 'HomePage',
+        name: 'CustomerHomePage',
         meta: { requiresAuth: true },
         component: HomePage
       },
