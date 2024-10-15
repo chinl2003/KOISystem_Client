@@ -34,7 +34,6 @@ export const saveUserFullName = (fullname) => {
     Cookies.remove(fullName, objCookies);
   }
 };
-
 export const saveUserName = (name) => {
   if (name) {
     Cookies.set(userName, name, objCookies);
@@ -45,7 +44,7 @@ export const saveUserName = (name) => {
 
 export const saveUserRole = (roles) => {
   if (roles) {
-    const dataSave = roles.map(role => role.name);
+    const dataSave = roles;
     Cookies.set(roleTitle, dataSave, objCookies);
   } else {
     Cookies.remove(roleTitle, objCookies);

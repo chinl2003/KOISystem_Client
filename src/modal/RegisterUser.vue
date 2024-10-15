@@ -15,7 +15,7 @@
   
           <div class="form-group">
             <label for="email">Email:<span class="required">*</span></label>
-            <input type="email" id="email" v-model="form.email" required placeholder="Vui lòng nhập email...">
+            <input type="email" id="email" v-model="form.email" @input="validateEmail" @blur="validateEmail" required placeholder="Vui lòng nhập email...">
           </div>
   
           <div class="form-group">
@@ -48,6 +48,9 @@
   </template>
   
   <script>
+  import { apiClient } from '@/api/axios';
+import { toastSuccess, toastWarning } from '@/utils/toast';
+
   export default {
     name: 'RegisterModal',
     data() {
@@ -69,7 +72,100 @@
       },
       submitForm() {
         this.closeModal()
+        this.register()
+      },
+      validateEmail() {
+      const emailRegex = /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
+      if (!emailRegex.test(this.email)) {
+        this.emailError = 'Please enter a valid email address. For example "example@example.com"';
+      } else {
+        this.emailError = '';
       }
+    },
+    validatePhone(){
+      const phoneRegrex = /^[0-9]{10}$/
+      if (!phoneRegrex.test(this.phone)){
+        this.phoneError = 'Please enter phone number enough 10 number from 0 to 9';
+      } else {
+        this.phoneError='';
+      }
+    },
+    validateUserName(){
+      if(!this.username){
+        this.userNameError ='Username can not be blank';
+      } else {
+        this.userNameError ='';
+      }
+    },
+    validateFirstName(){
+      if (!this.firstName){
+        this.firstNameError = 'First Name can not be blank';
+      } else {
+        this.firstNameError='';
+      }
+    },
+    validateLastName(){
+      if(!this.lastName){
+        this.lastNameError = 'Last Name can not be blank';
+      } else {
+        this.lastNameError = '';
+      }
+    },
+    validatePassword(){
+      if(!this.password){
+        this.passwordError = 'Password can not be blank';
+      } else {
+        this.passwordError='';
+      }
+    }, 
+    validateConfirmPassword(){
+      if(!this.passwordConfirm){
+        this.passwordConfirmError = 'Password confirm can not be blank';
+      } else if (this.passwordConfirm !== this.password) {
+        this.passwordConfirmError = 'Password confirm does not match with password';
+      } else {
+        this.passwordConfirmError='';
+      }
+    },
+    reset(){
+      this.username = '';
+      this.firstName = '';
+      this.lastName = '';
+      this.email = '';
+      this.phone = '';
+      this.password = '';
+      this.passwordConfirm = '';
+      this.userNameError = '';
+      this.firstNameError = '';
+      this.lastNameError = '';
+      this.emailError = '';
+      this.phoneError = '';
+      this.passwordError = '';
+      this.passwordConfirmError = '';
+    },
+    register() {
+    if (!this.emailError) {
+      apiClient.post('/api/auth/register', {
+          username: this.username,
+          firstName: this.firstName,
+          lastName: this.lastName,
+          email: this.email,
+          phone: this.phone,
+          password: this.password,
+          roleId: 2,
+          isCustomer: true
+      })
+      .then(response => {
+      const data = response.data;
+      if (data.success) {
+        toastSuccess(data.message || 'Registration successful');
+        const router = this.$router;
+        router.push('/'); 
+      } else {
+        toastWarning(data.message || 'An error occurred during registration');
+      }
+    })};
+  },
     }
   }
   </script>

@@ -66,6 +66,7 @@
 
 <script>
 import logo from '@/assets/images/logo.png'
+import { getUserFullName } from '@/utils/auth';
 
 export default {
   name: 'NavigationBar',
@@ -77,7 +78,7 @@ export default {
       showListDropdown: false,
       showPaymentDropdown: false,
       showCompetitionDropdown: false,
-      fullName: 'chi nguyen',
+      fullName: getUserFullName(),
       totalMoney: '1000 VND'
     }
   },
