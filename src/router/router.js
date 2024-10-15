@@ -10,6 +10,8 @@ import ListRoundCompetitionPage from '@/pages/ListRoundCompetitionPage.vue'
 import ListFormatCompetitionPage from '@/pages/ListFormatCompetitionPage.vue'
 import ListRewardCompetitionPage from '@/pages/ListRewardCompetitionPage.vue'
 import store from "@/store/store";
+import LoginPage from '@/pages/LoginPage.vue'
+import RegisterPage from '@/pages/RegisterPage.vue'
 
 const routes = [
   {
@@ -18,49 +20,69 @@ const routes = [
     component: HomePage
   },
   {
+    path: '/login',
+    name: 'Login',
+    component: LoginPage
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: RegisterPage
+  },
+  {
     path: '/customer',
-    name: 'CustomerPage',
-    component: CustomerPage
+    meta: { requiresAuth: true, role: ['Customer'] },
+    children: [
+      {
+        path: '',
+        name: 'CustomerPage',
+        meta: { requiresAuth: true },
+        component: CustomerPage
+      },
+      {
+        path: '/register-koi-fish',
+        name: 'RegisterKoiFishPage',
+        component: RegisterKoiFishPage
+      },
+      {
+        path: '/list-koi-fish',
+        name: 'ListKoiFishCustomerPage',
+        component: ListKoiFishCustomerPage
+      },
+      {
+        path: '/list-competition',
+        name: 'ListCompetitionPage',
+        component: ListCompetitionPage
+      },
+      {
+        path: '/list-rank-competition',
+        name: 'ListRankCompetitionPage',
+        component: ListRankCompetitionPage
+      },
+      {
+        path: '/list-round-competition',
+        name: 'ListRoundCompetitionPage',
+        component: ListRoundCompetitionPage
+      },
+      {
+        path: '/list-format-competition',
+        name: 'ListFormatCompetitionPage',
+        component: ListFormatCompetitionPage
+      },{
+        path: '/list-reward-competition',
+        name: 'ListRewardCompetitionPage',
+        component: ListRewardCompetitionPage
+      },
+    ]
+    
+    
   },
   {
     path: '/admin',
     name: 'AdminPage',
     component: AdminPage
   },
-  {
-    path: '/register-koi-fish',
-    name: 'RegisterKoiFishPage',
-    component: RegisterKoiFishPage
-  },
-  {
-    path: '/list-koi-fish',
-    name: 'ListKoiFishCustomerPage',
-    component: ListKoiFishCustomerPage
-  },
-  {
-    path: '/list-competition',
-    name: 'ListCompetitionPage',
-    component: ListCompetitionPage
-  },
-  {
-    path: '/list-rank-competition',
-    name: 'ListRankCompetitionPage',
-    component: ListRankCompetitionPage
-  },
-  {
-    path: '/list-round-competition',
-    name: 'ListRoundCompetitionPage',
-    component: ListRoundCompetitionPage
-  },
-  {
-    path: '/list-format-competition',
-    name: 'ListFormatCompetitionPage',
-    component: ListFormatCompetitionPage
-  },{
-    path: '/list-reward-competition',
-    name: 'ListRewardCompetitionPage',
-    component: ListRewardCompetitionPage
-  },
+  
 ]
 
 const router = createRouter({

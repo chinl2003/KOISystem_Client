@@ -158,8 +158,10 @@
       },
       submitForm() {
       },
+      // eslint-disable-next-line no-unused-vars
       handlePhotoUpload(event) {
       },
+      // eslint-disable-next-line no-unused-vars
       handleVideoUpload(event) {
       }
     }
