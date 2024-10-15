@@ -116,6 +116,9 @@
   import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
   import koi1 from '@/assets/images/koi1.png'
   import { axiosPrivate } from '@/api/axios.js';
+  import { useToast } from 'vue-toastification';
+import { useRouter } from 'vue-router';
+
   
   export default {
     name: 'HomePage',
@@ -160,6 +163,8 @@ methods: {
   },
   async submitForm() {
     try {
+      const toast = useToast();
+      const router = useRouter();
       const koiRequest = {
         name: this.koi.name,
         age: this.koi.age,
@@ -188,11 +193,12 @@ methods: {
       };
 
       const certificateResponse = await axiosPrivate.post('/api/certificate', certificateRequest);
-      alert('Đăng ký thành công!');
-    } catch (error) {
-      console.error('Error:', error);
-      alert('Đăng ký thất bại. Vui lòng thử lại.');
-    }
+      toast.success('Đăng ký thành công!');
+        router.push('/list-koi-fish');
+      } catch (error) {
+        console.error('Error:', error);
+        toast.error('Đăng ký thất bại. Vui lòng thử lại.');
+      }
   },
   handlePhotoUpload(event) {
   },
