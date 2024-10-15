@@ -9,9 +9,12 @@ import ListRankCompetitionPage from '@/pages/ListRankCompetitionPage.vue'
 import ListRoundCompetitionPage from '@/pages/ListRoundCompetitionPage.vue'
 import ListFormatCompetitionPage from '@/pages/ListFormatCompetitionPage.vue'
 import ListRewardCompetitionPage from '@/pages/ListRewardCompetitionPage.vue'
+import VnPayCallBack from '@/pages/VnPayCallBack.vue'
 import store from "@/store/store";
 import LoginPage from '@/pages/LoginPage.vue'
 import RegisterPage from '@/pages/RegisterPage.vue'
+import ListCompetitionCustomerPage from '@/pages/ListCompetitionCustomerPage.vue'
+
 
 const routes = [
   {
@@ -79,6 +82,16 @@ const routes = [
         name: 'ListRewardCompetitionPage',
         component: ListRewardCompetitionPage
       },
+      {
+        path: '/vnpay/callback',
+        name: 'VNPayCallBack',
+        component: VnPayCallBack
+      },
+      {
+        path: 'list-competition-customer',
+        name: 'ListCompetitionCustomerPage',
+        component: ListCompetitionCustomerPage
+      },
     ]
   },
   {
@@ -86,7 +99,6 @@ const routes = [
     name: 'AdminPage',
     component: AdminPage
   },
-  
 ]
 
 const router = createRouter({

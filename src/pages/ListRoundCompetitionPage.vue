@@ -7,7 +7,7 @@
           <div class="content">
             <div class="title-search-container">
               <h1 class="title">DANH SÁCH VÒNG THI ĐẤU</h1>
-              <button class="search-button">Tìm kiếm</button>
+              <button class="search-button" @click="openSearchModal">Tìm kiếm</button>
               <font-awesome-icon class="add-button" :icon="['fas', 'plus']" @click="openModal" />
             </div>
   
@@ -68,40 +68,54 @@
   
             <!-- Modal -->
             <CreateRoundCompetition v-if="showModal" @close="closeModal" />
+            <SearchModal 
+      v-if="showSearchModal" 
+      :isVisible="showSearchModal" 
+      @close="closeSearchModal" 
+      @search="handleSearch" 
+    />
           </div>
         </div>
       </div>
     </div>
   </template>
   
-    <script>
-    import HeaderAdmin from '@/components/HeaderAdmin.vue';
-    import SidebarAdmin from '@/components/SidebarAdmin.vue';
-    import CreateRoundCompetition from '@/modal/CreateRoundCompetition.vue';
-    
-    export default {
-      name: 'ListCompetitionPage',
-      components: {
-        HeaderAdmin,
-        SidebarAdmin,
-        CreateRoundCompetition,
-      },
-      data() {
-        return {
-          showModal: false, // Biến để theo dõi trạng thái modal
-        };
-      },
-      methods: {
-        openModal() {
-          this.showModal = true; // Mở modal khi click
-        },
-        closeModal() {
-          this.showModal = false; // Đóng modal
-        },
-      },
+  <script>
+import HeaderAdmin from '@/components/HeaderAdmin.vue';
+import SidebarAdmin from '@/components/SidebarAdmin.vue';
+import CreateRoundCompetition from '@/modal/CreateRankCompetition.vue';
+import SearchModal from '@/modal/SearchListRoundCompetition.vue';
+
+export default {
+  name: 'ListCompetitionPage',
+  components: {
+    HeaderAdmin,
+    SidebarAdmin,
+    CreateRoundCompetition,
+    SearchModal,
+  },
+  data() {
+    return {
+      showModal: false, // Biến để theo dõi trạng thái modal tạo hạng thi đấu
+      showSearchModal: false, // Biến để theo dõi trạng thái modal tìm kiếm
     };
-    </script>
-    
+  },
+  methods: {
+    openModal() {
+      this.showModal = true; // Mở modal tạo hạng thi đấu khi click
+    },
+    closeModal() {
+      this.showModal = false; // Đóng modal tạo hạng thi đấu
+    },
+    openSearchModal() {
+      this.showSearchModal = true; // Mở modal tìm kiếm khi click
+    },
+    closeSearchModal() {
+      this.showSearchModal = false; // Đóng modal tìm kiếm
+    },
+  },
+};
+</script>
     <style scoped>
     .main-container {
       display: flex;

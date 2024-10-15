@@ -14,45 +14,6 @@
             <form @submit.prevent="submitForm">
               <div v-if="step === 1">
                 <div class="form-group">
-                  <label for="certificateNumber">Số chứng chỉ <span class="required">*</span></label>
-                  <input type="text" id="certificateNumber" v-model="certificate.certificateNumber" placeholder="Vui lòng nhập số chứng chỉ" required />
-                </div>
-                <div class="form-group">
-                  <label for="issuingPlace">Nơi cấp chứng chỉ <span class="required">*</span></label>
-                  <input type="text" id="issuingPlace" v-model="certificate.issuingPlace" placeholder="Vui lòng nhập nơi cấp chứng chỉ" required />
-                </div>
-                <div class="form-group">
-                  <label for="contactInfo">Thông tin liên lạc với nơi cấp <span class="required">*</span></label>
-                  <input type="text" id="contactInfo" v-model="certificate.contactInfo" placeholder="Vui lòng nhập thông tin liên lạc" required />
-                </div>
-                <div class="form-group">
-                  <label for="owner">Người sở hữu <span class="required">*</span></label>
-                  <input type="text" id="owner" v-model="certificate.owner" placeholder="Vui lòng nhập tên người sở hữu" required />
-                </div>
-                <div class="form-group">
-                  <label for="age">Độ tuổi của cá Koi <span class="required">*</span></label>
-                  <input type="number" id="age" v-model="certificate.age" placeholder="Vui lòng nhập độ tuổi của cá Koi" required />
-                </div>
-                <div class="form-group">
-                  <label for="microchip">Mã số microchip <span class="required">*</span></label>
-                  <input type="text" id="microchip" v-model="certificate.microchip" placeholder="Vui lòng nhập mã số microchip" required />
-                </div>
-                <div class="form-group">
-                  <label for="seller">Người bán <span class="required">*</span></label>
-                  <input type="text" id="seller" v-model="certificate.seller" placeholder="Vui lòng nhập tên người bán" required />
-                </div>
-                <div class="form-group">
-                  <label for="certificateLink">Link chứng chỉ <span class="required">*</span></label>
-                  <input type="url" id="certificateLink" v-model="certificate.certificateLink" placeholder="Vui lòng nhập link chứng chỉ" required />
-                </div>
-                <teleport to="body">
-                  <button type="button" class="next-button" @click="nextStep">
-                    <font-awesome-icon :icon="['fas', 'chevron-right']" />
-                  </button>
-                </teleport>
-              </div>
-              <div v-if="step === 2">
-                <div class="form-group">
                   <label for="name">Tên <span class="required">*</span></label>
                   <input type="text" id="name" v-model="koi.name" placeholder="Vui lòng nhập tên cá Koi" required />
                 </div>
@@ -93,6 +54,45 @@
                   <input type="file" id="video" @change="handleVideoUpload" required />
                 </div>
                 <teleport to="body">
+                  <button type="button" class="next-button" @click="nextStep">
+                    <font-awesome-icon :icon="['fas', 'chevron-right']" />
+                  </button>
+                </teleport>
+              </div>
+              <div v-if="step === 2">
+                <div class="form-group">
+                  <label for="certificateNumber">Số chứng chỉ <span class="required">*</span></label>
+                  <input type="text" id="certificateNumber" v-model="certificate.certificateNumber" placeholder="Vui lòng nhập số chứng chỉ" required />
+                </div>
+                <div class="form-group">
+                  <label for="issuingPlace">Nơi cấp chứng chỉ <span class="required">*</span></label>
+                  <input type="text" id="issuingPlace" v-model="certificate.issuingPlace" placeholder="Vui lòng nhập nơi cấp chứng chỉ" required />
+                </div>
+                <div class="form-group">
+                  <label for="contactInfo">Thông tin liên lạc với nơi cấp <span class="required">*</span></label>
+                  <input type="text" id="contactInfo" v-model="certificate.contactInfo" placeholder="Vui lòng nhập thông tin liên lạc" required />
+                </div>
+                <div class="form-group">
+                  <label for="owner">Người sở hữu <span class="required">*</span></label>
+                  <input type="text" id="owner" v-model="certificate.owner" placeholder="Vui lòng nhập tên người sở hữu" required />
+                </div>
+                <div class="form-group">
+                  <label for="age">Độ tuổi của cá Koi <span class="required">*</span></label>
+                  <input type="number" id="age" v-model="certificate.age" placeholder="Vui lòng nhập độ tuổi của cá Koi" required />
+                </div>
+                <div class="form-group">
+                  <label for="microchip">Mã số microchip <span class="required">*</span></label>
+                  <input type="text" id="microchip" v-model="certificate.microchip" placeholder="Vui lòng nhập mã số microchip" required />
+                </div>
+                <div class="form-group">
+                  <label for="seller">Người bán <span class="required">*</span></label>
+                  <input type="text" id="seller" v-model="certificate.seller" placeholder="Vui lòng nhập tên người bán" required />
+                </div>
+                <div class="form-group">
+                  <label for="certificateLink">Link chứng chỉ <span class="required">*</span></label>
+                  <input type="url" id="certificateLink" v-model="certificate.certificateLink" placeholder="Vui lòng nhập link chứng chỉ" required />
+                </div>
+                <teleport to="body">
                   <button type="button" class="back-button" @click="prevStep">
                     <font-awesome-icon :icon="['fas', 'chevron-left']" />
                   </button>
@@ -115,6 +115,10 @@
   import FooterCustomer from '@/components/FooterCustomer.vue'
   import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
   import koi1 from '@/assets/images/koi1.png'
+  import { axiosPrivate } from '@/api/axios.js';
+  import { useToast } from 'vue-toastification';
+import { useRouter } from 'vue-router';
+
   
   export default {
     name: 'HomePage',
@@ -149,28 +153,63 @@
         koi1,
       }
     },
-    methods: {
-      nextStep() {
-        this.step = 2;
-      },
-      prevStep() {
-        this.step = 1;
-      },
-      submitForm() {
-      },
-      // eslint-disable-next-line no-unused-vars
-      handlePhotoUpload(event) {
-      },
-      // eslint-disable-next-line no-unused-vars
-      handleVideoUpload(event) {
+    
+methods: {
+  nextStep() {
+    this.step = 2;
+  },
+  prevStep() {
+    this.step = 1;
+  },
+  async submitForm() {
+    try {
+      const toast = useToast();
+      const router = useRouter();
+      const koiRequest = {
+        name: this.koi.name,
+        age: this.koi.age,
+        weight: this.koi.weight,
+        size: this.koi.size,
+        color: this.koi.color,
+        skinPattern: this.koi.pattern,
+        variety: this.koi.species,
+        shape: this.koi.shape
+      };
+
+      const koiResponse = await axiosPrivate.post('/api/koifish', koiRequest);
+
+      const koiFishId = koiResponse.data.id; 
+      const certificateRequest = {
+        koiFishId: koiFishId,
+        certificateNumber: this.certificate.certificateNumber,
+        certificateIssuanceLocation: this.certificate.issuingPlace,
+        contactInformation: this.certificate.contactInfo,
+        ownerName: this.certificate.owner,
+        fishAgeInYears: this.certificate.age,
+        microchipNumber: this.certificate.microchip,
+        isVerified: this.certificate.isVerified,
+        authorizedSignature: this.certificate.authorizedSignature,
+        certificateUrl: this.certificate.certificateLink
+      };
+
+      const certificateResponse = await axiosPrivate.post('/api/certificate', certificateRequest);
+      toast.success('Đăng ký thành công!');
+        router.push('/list-koi-fish');
+      } catch (error) {
+        console.error('Error:', error);
+        toast.error('Đăng ký thất bại. Vui lòng thử lại.');
       }
-    }
+  },
+  handlePhotoUpload(event) {
+  },
+  handleVideoUpload(event) {
+  }
+}
+
   }
   </script>
   <style scoped>
   .content {
-  /* min-height: 60vh;
-  padding: 20px; */
   border: 2px solid #d3d3d3; 
   border-radius: 10px; 
   padding: 20px;
