@@ -70,6 +70,11 @@ const routes = [
     name: 'ListCompetitionCustomerPage',
     component: ListCompetitionCustomerPage
   },
+  {
+    path: '/vnpay/callback',
+    name: 'VNPayCallBack',
+    component: VnPayCallBack
+  },
 ]
 
 const router = createRouter({
