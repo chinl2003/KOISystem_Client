@@ -2,7 +2,6 @@ import axios from "axios";
 import { getToken } from "../utils/auth";
 import { SYS_API_URL } from "../constants/global";
 import { toastError } from "@/utils/toast";
-
 const apiClient =  axios.create({
     baseURL: SYS_API_URL,
 });

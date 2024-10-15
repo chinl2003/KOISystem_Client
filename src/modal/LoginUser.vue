@@ -27,6 +27,7 @@
   </template>
   
   <script>
+  import { getUserRole } from '@/utils/auth';
   export default {
     name: 'LoginUser',
     data() {
@@ -41,12 +42,29 @@
       closeModal() {
         this.$emit('close');
       },
-      submitForm() {
+      async submitForm() {
         // Handle form submission
+        try {
+        await this.$store.dispatch('login', {
+          email: this.form.username,
+          password: this.form.password,
+        });
+        this.$router.push('/'); 
+        this.closeModal()
+        if(getUserRole().includes('Member')){
+          this.$router.push('/customer'); 
+        }
+        if(getUserRole().includes('Admin')){
+          this.$router.push('/'); 
+        }
+      } catch (error) {
+        console.error('Login failed:', error);
+      }
       },
       signInWithGoogle() {
-        // Handle Google sign-in
-      }
+      },
+     
+
     }
   }
   </script>

@@ -1,12 +1,12 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="container-fluid">
-      <div class="navbar-brand d-flex align-items-center col-3">
+    <div class="flex justify-between w-full items-center">
+      <div class="flex items-center">
         <img :src="logo" alt="Logo" class="logo-img" />
         <span class="brand-text">KOI SHOWCASE</span>
       </div>
-      <div class="collapse navbar-collapse col-8">
-        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+      <div class="flex gap-12">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 flex gap-24">
           <li class="nav-item">
             <a class="nav-link" href="#introduction">Giới thiệu</a>
           </li>
@@ -33,7 +33,7 @@
       <div class="dropdown-divider"></div>
       <a class="dropdown-item" href="#personalPage">Trang cá nhân</a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#logout">Đăng xuất</a>
+      <a class="dropdown-item" @click="logout">Đăng xuất</a>
     </div>
     <RegisterUser v-if="isRegisterModalVisible" @close="isRegisterModalVisible = false" />
     <LoginUser v-if="isLoginModalVisible" @close="isLoginModalVisible = false" />
@@ -44,6 +44,7 @@
 import logo from '@/assets/images/logo.png'
 import RegisterUser from '@/modal/RegisterUser.vue'
 import LoginUser from '@/modal/LoginUser.vue'
+import { getUserFullName } from '@/utils/auth';
 
 export default {
   name: 'NavigationBar',
@@ -55,7 +56,7 @@ export default {
     return {
       logo,
       showMenu: false,
-      fullName: 'chi nguyen',
+      fullName: getUserFullName() ?? "Guest",
       isRegisterModalVisible: false,
       isLoginModalVisible: false
     }
@@ -66,7 +67,7 @@ export default {
     },
     handleClickOutside(event) {
       if (!this.$el.contains(event.target)) {
-        this.showMenu = false;
+        this.showMenu = false
       }
     },
     showRegisterModal() {
@@ -76,42 +77,51 @@ export default {
     showLoginModal() {
       this.isLoginModalVisible = true
       this.showMenu = false
-    }
+    },
+    logout(){
+      try {
+        console.log("test")
+        this.$store.dispatch('logout');
+        this.$router.push('/'); 
+      } catch (error) {
+        console.error(error);
+      }
+    },
   },
   mounted() {
-    document.addEventListener('click', this.handleClickOutside);
+    document.addEventListener('click', this.handleClickOutside)
   },
   beforeDestroy() {
-    document.removeEventListener('click', this.handleClickOutside);
+    document.removeEventListener('click', this.handleClickOutside)
   }
 }
 </script>
 
-<style scoped>
+<style lang="css" scoped>
 .navbar {
-  background-color: #3a1493 !important; 
+  background-color: #3a1493 !important;
 }
 
 .logo-img {
-  max-height: 80px; 
+  max-height: 80px;
   margin-right: 0.5rem;
 }
 
 .brand-text {
-  font-size: 1.5rem; 
+  font-size: 1.5rem;
   color: white;
 }
 
 .navbar-nav {
   display: flex;
-  justify-content: space-around; 
+  justify-content: space-around;
   width: 100%;
 }
 
 .nav-link {
   color: white !important;
   font-size: 1.2rem;
-  text-align: center; 
+  text-align: center;
 }
 
 .d-flex .fa-user {
