@@ -1,23 +1,23 @@
 <template>
   <div>
     <HeaderBarHomePage />
-    <div class="flex flex-col gap-12 px-[120px]">
-      <section id="introduction" class="custom-background h-[1000px]">
-        <div class="flex flex-col max-w-[625px] mt-[80px] ml-[160px]">
-          <header class="flex flex-col w-full max-md:max-w-full">
+    <div class="tw-flex tw-flex-col tw-gap-12 tw-px-[120px]">
+      <section id="introduction" class="custom-background tw-h-[1000px]">
+        <div class="tw-flex tw-flex-col tw-max-w-[625px] tw-mt-[80px] tw-ml-[160px]">
+          <header class="tw-flex tw-flex-col tw-w-full tw-max-md:tw-max-w-full">
             <h1
-              class="text-4xl font-bold tracking-wider leading-10 text-slate-900 max-md:max-w-full"
+              class="tw-text-4xl tw-font-bold tw-tracking-wider tw-leading-10 tw-text-slate-900 tw-max-md:tw-max-w-full"
             >
               Triển lãm cá Koi toàn quốc lần thứ 7 (2024)
             </h1>
-            <p class="mt-5 text-lg leading-8 text-slate-500 max-md:max-w-full">
+            <p class="tw-mt-5 tw-text-lg tw-leading-8 tw-text-slate-500 tw-max-md:tw-max-w-full">
               Tiếp nối sự thành công tại cuộc thi lần thứ 6 vừa rồi (2023), tại triển lãm lần này có
               700 slot đăng ký cá koi dành cho nhiều trại cá, hồ và câu lạc bộ cá koi nổi tiếng
               trong và ngoài nước cùng tham gia dự thi.
             </p>
           </header>
           <button
-            class="gap-2.5 self-stretch py-1.5 mt-10 max-w-full text-base font-bold leading-loose text-center text-white bg-red-600 w-[189px]"
+            class="tw-gap-2.5 tw-self-stretch tw-py-1.5 tw-mt-10 tw-max-w-full tw-text-base tw-font-bold tw-leading-loose tw-text-center tw-text-white tw-bg-red-600 tw-w-[189px]"
             @click="handleRegistration"
           >
             Đăng ký cá Koi đi thi
@@ -25,48 +25,48 @@
         </div>
       </section>
 
-      <section class="px-5 md:px-30 mt-12">
-        <div class="text-2xl md:text-4xl mb-5 text-center">Kết quả chung cuộc giải đấu A</div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div class="flex flex-col items-center text-center w-full">
-            <img src="@/assets/images/koi-a-mature.png" class="w-full aspect-square object-cover" />
-            <div class="pt-5 text-lg md:text-xl font-bold">Koi A- Giải nhất -Hạng mature</div>
+      <section class="tw-px-5 tw-md:tw-px-30 tw-mt-12">
+        <div class="tw-text-2xl tw-md:tw-text-4xl tw-mb-5 tw-text-center">Kết quả chung cuộc giải đấu A</div>
+        <div class="tw-grid tw-grid-cols-1 tw-md:tw-grid-cols-2 tw-gap-5">
+          <div class="tw-flex tw-flex-col tw-items-center tw-text-center tw-w-full">
+            <img src="@/assets/images/koi-a-mature.png" class="tw-w-full tw-aspect-square tw-object-cover" />
+            <div class="tw-pt-5 tw-text-lg tw-md:tw-text-xl tw-font-bold">Koi A- Giải nhất -Hạng mature</div>
           </div>
 
-          <div class="flex flex-col items-center text-center w-full">
-            <img src="@/assets/images/koi-b-adult.png" class="w-full aspect-square object-cover" />
-            <div class="pt-5 text-xl font-bold">Koi B- Giải nhất -Hạng adult</div>
+          <div class="tw-flex tw-flex-col tw-items-center tw-text-center tw-w-full">
+            <img src="@/assets/images/koi-b-adult.png" class="tw-w-full tw-aspect-square tw-object-cover" />
+            <div class="tw-pt-5 tw-text-xl tw-font-bold">Koi B- Giải nhất -Hạng adult</div>
           </div>
 
-          <div class="flex flex-col items-center text-center w-full">
-            <img src="@/assets/images/koi-a-young.png" class="w-full aspect-square object-cover" />
-            <div class="pt-5 text-xl font-bold">Koi A- Giải nhất -Hạng young</div>
+          <div class="tw-flex tw-flex-col tw-items-center tw-text-center tw-w-full">
+            <img src="@/assets/images/koi-a-young.png" class="tw-w-full tw-aspect-square tw-object-cover" />
+            <div class="tw-pt-5 tw-text-xl tw-font-bold">Koi A- Giải nhất -Hạng young</div>
           </div>
 
-          <div class="flex flex-col items-center text-center w-full">
-            <img src="@/assets/images/koi-b-baby.png" class="w-full aspect-square object-cover" />
-            <div class="pt-5 text-xl font-bold">Koi A- Giải nhất -Hạng baby</div>
+          <div class="tw-flex tw-flex-col tw-items-center tw-text-center tw-w-full">
+            <img src="@/assets/images/koi-b-baby.png" class="tw-w-full tw-aspect-square tw-object-cover" />
+            <div class="tw-pt-5 tw-text-xl tw-font-bold">Koi A- Giải nhất -Hạng baby</div>
           </div>
         </div>
       </section>
 
       <section id="nationality">
-        <div class="mt-5">
-          <div class="text-4xl text-center font-bold">Giải thưởng chung cuộc</div>
-          <div class="flex justify-center flex-col items-center gap-4 mt-4">
-            <div class="flex flex-col gap-2 items-center text-xl">
+        <div class="tw-mt-5">
+          <div class="tw-text-4xl tw-text-center tw-font-bold">Giải thưởng chung cuộc</div>
+          <div class="tw-flex tw-justify-center tw-flex-col tw-items-center tw-gap-4 tw-mt-4">
+            <div class="tw-flex tw-flex-col tw-gap-2 tw-items-center tw-text-xl">
               <img width="320" src="@/assets/images/trophy1.png" />
               <span>Giải nhất</span>
               <span>100.000.000 VND</span>
             </div>
 
-            <div class="flex gap-24">
-              <div class="flex flex-col gap-2 items-center text-xl">
+            <div class="tw-flex tw-gap-24">
+              <div class="tw-flex tw-flex-col tw-gap-2 tw-items-center tw-text-xl">
                 <img width="450" src="@/assets/images/trophy2.png" />
                 <span>Giải nhìn</span>
                 <span>50.000.000 VND</span>
               </div>
-              <div class="flex flex-col gap-2 items-center text-xl">
+              <div class="tw-flex tw-flex-col tw-gap-2 tw-items-center tw-text-xl">
                 <img src="@/assets/images/trophy3.png" />
                 <span>Giải ba</span>
                 <span>30.000.000 VND</span>
@@ -77,11 +77,11 @@
       </section>
 
       <section id="category">
-        <div class="flex justify-center w-full px-[20%]">
-          <div class="basis-1/2 flex flex-col items-center gap-4 px-12">
-            <div class="text-3xl">Các tiêu chí chấm điểm</div>
-            <div class="text-2xl">
-              <ul class="flex flex-col gap-2">
+        <div class="tw-flex tw-justify-center tw-w-full tw-px-[20%]">
+          <div class="tw-basis-1/2 tw-flex tw-flex-col tw-items-center tw-gap-4 tw-px-12">
+            <div class="tw-text-3xl">Các tiêu chí chấm điểm</div>
+            <div class="tw-text-2xl">
+              <ul class="tw-flex tw-flex-col tw-gap-2">
                 <li>1.Hình dáng</li>
                 <li>2.Kích thước</li>
                 <li>3.Chủng loại</li>
@@ -94,9 +94,9 @@
             </div>
           </div>
 
-          <div class="basis-1/2 flex flex-col items-center gap-4 px-12">
-            <div class="text-3xl">Tại sao cần tốn phí khi đăng kí thi</div>
-            <div class="text-2xl">
+          <div class="tw-basis-1/2 tw-flex tw-flex-col tw-items-center tw-gap-4 tw-px-12">
+            <div class="tw-text-3xl">Tại sao cần tốn phí khi đăng kí thi</div>
+            <div class="tw-text-2xl">
               Việc thu phí đăng ký tham dự không chỉ giúp chúng tôi duy trì và nâng cao chất lượng
               của sự kiện mà còn mang lại nhiều lợi ích thiết thực cho người tham gia:Đảm bảo chất
               lượng sự kiện, đảm bảo tính cạnh tranh công bằng,phần thưởng hấp dẫn cùng với đóng góp
@@ -107,13 +107,13 @@
       </section>
 
       <section>
-        <div class="px-[120px] flex flex-col gap-12 mb-12">
-          <div class="text-4xl text-center font-bold">“Profile “ Ban giám khảo</div>
-          <div class="flex gap-4">
-            <div class="flex flex-col items-center gap-4">
+        <div class="tw-px-[120px] tw-flex tw-flex-col tw-gap-12 tw-mb-12">
+          <div class="tw-text-4xl tw-text-center tw-font-bold">“Profile “ Ban giám khảo</div>
+          <div class="tw-flex tw-gap-4">
+            <div class="tw-flex tw-flex-col tw-items-center tw-gap-4">
               <img width="300" src="@/assets/images/judge1.jpg" />
-              <div class="text-2xl">Manoru Komada</div>
-              <div class="text-xl text-center">
+              <div class="tw-text-2xl">Manoru Komada</div>
+              <div class="tw-text-xl tw-text-center">
                 Mamoru Kodama là một trong những giám khảo hàng đầu và có uy tín nhất trong cộng
                 đồng cá Koi. Ông là người sáng lập Kodama Koi Farm, một trong những trang trại cá
                 Koi lớn nhất và nổi tiếng nhất thế giới.Ông Kodama được biết đến với kiến thức sâu
@@ -122,14 +122,14 @@
               </div>
             </div>
 
-            <div class="flex flex-col items-center gap-4">
+            <div class="tw-flex tw-flex-col tw-items-center tw-gap-4">
               <img
                 width="300"
-                class="aspect-square object-cover object-top"
+                class="tw-aspect-square tw-object-cover tw-object-top"
                 src="@/assets/images/judge2.jpg"
               />
-              <div class="text-2xl">Tosyo Sakai</div>
-              <div class="text-xl text-center">
+              <div class="tw-text-2xl">Tosyo Sakai</div>
+              <div class="tw-text-xl tw-text-center">
                 Toshio Sakai là một giám khảo và nhà lai tạo cá Koi nổi tiếng từ Nhật Bản. Ông là
                 chủ sở hữu của trang trại cá Koi nổi tiếng Isawa Nishikigoi Center.Toshio Sakai được
                 biết đến với việc phát triển nhiều giống cá Koi đẹp và độc đáo. Ông đã giành nhiều
@@ -138,14 +138,14 @@
               </div>
             </div>
 
-            <div class="flex flex-col items-center gap-4">
+            <div class="tw-flex tw-flex-col tw-items-center tw-gap-4">
               <img
                 width="300"
-                class="aspect-square object-cover object-top"
+                class="tw-aspect-square tw-object-cover tw-object-top"
                 src="@/assets/images/judge3.jpg"
               />
-              <div class="text-2xl">Peter Waddington</div>
-              <div class="text-xl text-center">
+              <div class="tw-text-2xl">Peter Waddington</div>
+              <div class="tw-text-xl tw-text-center">
                 Peter Waddington là một giám khảo và tác giả nổi tiếng trong cộng đồng cá Koi. Ông
                 là người sáng lập Infiltration, một công ty chuyên cung cấp các sản phẩm và dịch vụ
                 liên quan đến cá Koi. Peter Waddington đã viết nhiều sách và bài báo về cá Koi, chia
@@ -187,7 +187,7 @@ export default {
 }
 
 .custom-background {
-  @apply relative;
+  @apply tw-relative;
   background:
     url('@/assets/images/bg-intro-2.png') 870px 0px no-repeat,
     url('@/assets/images/bg-intro-1.png') 40px 450px no-repeat;
