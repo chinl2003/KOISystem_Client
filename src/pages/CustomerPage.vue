@@ -1,6 +1,6 @@
 <template>
     <div>
-      <HeaderCustomer />
+      <HeaderBarHomePage />
       <div class="content">
         <p>Customer Page</p>
       </div>
@@ -9,13 +9,13 @@
   </template>
   
   <script>
-  import HeaderCustomer from '@/components/HeaderCustomer.vue'
+  import HeaderBarHomePage from '@/components/HeaderCustomer.vue'
   import FooterCustomer from '@/components/FooterCustomer.vue'
   
   export default {
     name: 'HomePage',
     components: {
-        HeaderCustomer,
+      HeaderBarHomePage,
         FooterCustomer
     }
   }

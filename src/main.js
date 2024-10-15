@@ -16,7 +16,8 @@ import { fas } from '@fortawesome/free-solid-svg-icons' // Solid icons
 import { far } from '@fortawesome/free-regular-svg-icons' // Regular icons
 import { fab } from '@fortawesome/free-brands-svg-icons' // Brand icons
 import './index.css'
-
+import Toast, { POSITION } from 'vue-toastification'
+import 'vue-toastification/dist/index.css'
 // Add the icons to the library
 library.add(fas, far, fab)
 const app = createApp(App)
@@ -24,5 +25,8 @@ app.component('font-awesome-icon', FontAwesomeIcon)
 
 app.use(router)
 app.use(store)
-
+app.use(Toast, {
+    position: POSITION.TOP_RIGHT,
+    timeout: 5000,
+  })
 app.mount('#app')

@@ -5,7 +5,7 @@
         <img :src="logo" alt="Logo" class="logo-img" />
         <span class="brand-text">KOI SHOWCASE</span>
       </router-link>
-      <div class="collapse navbar-collapse col-9">
+      <div class="collapse navbar-collapse ">
         <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
           <li class="nav-item" @click.stop="toggleDropdown('register')">
             <a class="nav-link" href="#">Đăng kí <font-awesome-icon :icon="['fas', 'chevron-down']" class="chevron-icon" /></a>
@@ -20,7 +20,7 @@
             <ul v-if="showListDropdown" class="sub-menu">
               <li><router-link class="dropdown-item" to="/list-koi-fish">Danh sách cá Koi</router-link></li>
               <div class="dropdown-divider"></div>
-              <li><router-link class="dropdown-item" to="/list/competition">Danh sách cuộc thi</router-link></li>
+              <li><router-link class="dropdown-item" to="/list-competition-customer">Danh sách cuộc thi</router-link></li>
             </ul>
           </li>
           <li class="nav-item" @click.stop="toggleDropdown('payment')">
@@ -66,6 +66,7 @@
 
 <script>
 import logo from '@/assets/images/logo.png'
+import { getUserFullName } from '@/utils/auth';
 
 export default {
   name: 'NavigationBar',
@@ -77,7 +78,7 @@ export default {
       showListDropdown: false,
       showPaymentDropdown: false,
       showCompetitionDropdown: false,
-      fullName: 'chi nguyen',
+      fullName: getUserFullName(),
       totalMoney: '1000 VND'
     }
   },
