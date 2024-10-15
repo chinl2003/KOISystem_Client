@@ -10,6 +10,7 @@ import ListRoundCompetitionPage from '@/pages/ListRoundCompetitionPage.vue'
 import ListFormatCompetitionPage from '@/pages/ListFormatCompetitionPage.vue'
 import ListRewardCompetitionPage from '@/pages/ListRewardCompetitionPage.vue'
 import store from "@/store/store";
+import ListRegisteKoiFishAdminPage from '@/pages/ListRegisteKoiFishAdminPage.vue'
 
 const routes = [
   {
@@ -60,6 +61,11 @@ const routes = [
     path: '/list-reward-competition',
     name: 'ListRewardCompetitionPage',
     component: ListRewardCompetitionPage
+  },
+  {
+    path: '/list-koi-fish-admin',
+    name: 'ListRegisteKoiFishAdminPage',
+    component: ListRegisteKoiFishAdminPage
   },
 ]
 

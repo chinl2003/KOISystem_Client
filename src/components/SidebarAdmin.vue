@@ -57,7 +57,7 @@ export default {
           icon: 'bars',
           tooltip: 'Danh sách đăng kí',
           submenu: [
-            { name: 'Danh sách đăng kí cá Koi'},
+            { name: 'Danh sách đăng kí cá Koi', route: '/list-koi-fish-admin'},
             { name: 'Danh sách đăng kí cuộc thi'},
           ],
         },
