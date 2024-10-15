@@ -34,13 +34,14 @@ export default createStore({
         console.log(password);
         const response = await apiClient.post('/api/auth/login', { username: email, password });
         if (response.status == 200) {
-          const { id, firstName, lastName, email, username, role, accessToken } = response.data.data;
-          const user = { id, firstName, lastName, email, username, role };
+          const { userId, firstName, lastName, email, username, role, accessToken } = response.data.data;
+          const user = { userId, firstName, lastName, email, username, role };
           commit('setUser', user);
           commit('setToken', accessToken);
+          console.log(this.state.token)
           saveToken(accessToken);
           saveToken(accessToken);
-          saveUserId(id);
+          saveUserId(userId);
           saveUserFullName(firstName + " "+ lastName)
           saveUserName(username);
           saveUserRole(role);
@@ -51,7 +52,6 @@ export default createStore({
 
     },
     logout({ commit }) {
-      console.log('teset')
       commit('logout');
       saveToken(null);
       saveUserId(null);
