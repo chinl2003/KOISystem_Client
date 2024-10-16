@@ -10,7 +10,7 @@
           <li class="nav-item" @click.stop="toggleDropdown('register')">
             <a class="nav-link" href="#">Đăng kí <font-awesome-icon :icon="['fas', 'chevron-down']" class="chevron-icon" /></a>
             <ul v-if="showRegisterDropdown" class="sub-menu">
-              <li><router-link class="dropdown-item" to="/register-koi-fish">Đăng kí cá Koi</router-link></li>
+              <li><router-link class="dropdown-item" to="/customer/register-koi-fish">Đăng kí cá Koi</router-link></li>
               <div class="dropdown-divider"></div>
               <li><router-link class="dropdown-item" to="/register/competition">Đăng kí cuộc thi</router-link></li>
             </ul>
@@ -18,7 +18,7 @@
           <li class="nav-item" @click.stop="toggleDropdown('list')">
             <a class="nav-link" href="#">Danh sách <font-awesome-icon :icon="['fas', 'chevron-down']" class="chevron-icon" /></a>
             <ul v-if="showListDropdown" class="sub-menu">
-              <li><router-link class="dropdown-item" to="/list-koi-fish">Danh sách cá Koi</router-link></li>
+              <li><router-link class="dropdown-item" to="/customer/list-koi-fish">Danh sách cá Koi</router-link></li>
               <div class="dropdown-divider"></div>
               <li><router-link class="dropdown-item" to="/list-competition-customer">Danh sách cuộc thi</router-link></li>
             </ul>
