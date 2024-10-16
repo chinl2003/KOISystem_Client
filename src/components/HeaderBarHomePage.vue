@@ -1,12 +1,12 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <div class="flex justify-between w-full items-center">
-      <div class="flex items-center">
+    <div class="tw-flex tw-justify-between tw-w-full tw-items-center">
+      <div class="tw-flex tw-items-center">
         <img :src="logo" alt="Logo" class="logo-img" />
         <span class="brand-text">KOI SHOWCASE</span>
       </div>
-      <div class="flex gap-12">
-        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 flex gap-24">
+      <div class="tw-flex tw-gap-12">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 tw-flex tw-gap-24">
           <li class="nav-item">
             <a class="nav-link" href="#introduction">Giới thiệu</a>
           </li>

@@ -9,7 +9,12 @@ import ListRankCompetitionPage from '@/pages/ListRankCompetitionPage.vue'
 import ListRoundCompetitionPage from '@/pages/ListRoundCompetitionPage.vue'
 import ListFormatCompetitionPage from '@/pages/ListFormatCompetitionPage.vue'
 import ListRewardCompetitionPage from '@/pages/ListRewardCompetitionPage.vue'
+import VnPayCallBack from '@/pages/VnPayCallBack.vue'
 import store from "@/store/store";
+import LoginPage from '@/pages/LoginPage.vue'
+import RegisterPage from '@/pages/RegisterPage.vue'
+import ListCompetitionCustomerPage from '@/pages/ListCompetitionCustomerPage.vue'
+
 import ListRegisteKoiFishAdminPage from '@/pages/ListRegisteKoiFishAdminPage.vue'
 
 const routes = [
@@ -19,48 +24,81 @@ const routes = [
     component: HomePage
   },
   {
+    path: '/login',
+    name: 'Login',
+    component: LoginPage
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: RegisterPage
+  },
+  {
     path: '/customer',
-    name: 'CustomerPage',
-    component: CustomerPage
+    meta: { requiresAuth: true, role: ['Member'] },
+    children: [
+      {
+        path: '',
+        name: 'CustomerHomePage',
+        meta: { requiresAuth: true },
+        component: HomePage
+      },
+      {
+        path: 'wallet',
+        name: 'CustomerPage',
+        meta: { requiresAuth: true },
+        component: CustomerPage
+      },
+      {
+        path: 'register-koi-fish',
+        name: 'RegisterKoiFishPage',
+        component: RegisterKoiFishPage
+      },
+      {
+        path: 'list-koi-fish',
+        name: 'ListKoiFishCustomerPage',
+        component: ListKoiFishCustomerPage
+      },
+      {
+        path: 'list-competition',
+        name: 'ListCompetitionPage',
+        component: ListCompetitionPage
+      },
+      {
+        path: 'list-rank-competition',
+        name: 'ListRankCompetitionPage',
+        component: ListRankCompetitionPage
+      },
+      {
+        path: 'list-round-competition',
+        name: 'ListRoundCompetitionPage',
+        component: ListRoundCompetitionPage
+      },
+      {
+        path: 'list-format-competition',
+        name: 'ListFormatCompetitionPage',
+        component: ListFormatCompetitionPage
+      },{
+        path: 'list-reward-competition',
+        name: 'ListRewardCompetitionPage',
+        component: ListRewardCompetitionPage
+      },
+      {
+        path: '/vnpay/callback',
+        name: 'VNPayCallBack',
+        component: VnPayCallBack
+      },
+      {
+        path: 'list-competition-customer',
+        name: 'ListCompetitionCustomerPage',
+        component: ListCompetitionCustomerPage
+      },
+    ]
   },
   {
     path: '/admin',
     name: 'AdminPage',
     component: AdminPage
-  },
-  {
-    path: '/register-koi-fish',
-    name: 'RegisterKoiFishPage',
-    component: RegisterKoiFishPage
-  },
-  {
-    path: '/list-koi-fish',
-    name: 'ListKoiFishCustomerPage',
-    component: ListKoiFishCustomerPage
-  },
-  {
-    path: '/list-competition',
-    name: 'ListCompetitionPage',
-    component: ListCompetitionPage
-  },
-  {
-    path: '/list-rank-competition',
-    name: 'ListRankCompetitionPage',
-    component: ListRankCompetitionPage
-  },
-  {
-    path: '/list-round-competition',
-    name: 'ListRoundCompetitionPage',
-    component: ListRoundCompetitionPage
-  },
-  {
-    path: '/list-format-competition',
-    name: 'ListFormatCompetitionPage',
-    component: ListFormatCompetitionPage
-  },{
-    path: '/list-reward-competition',
-    name: 'ListRewardCompetitionPage',
-    component: ListRewardCompetitionPage
   },
   {
     path: '/list-koi-fish-admin',
@@ -75,6 +113,7 @@ const router = createRouter({
 })
   router.beforeEach((to, from, next) => {
     if (to.matched.some(record => record.meta.requiresAuth)) {
+      console.log(store.getters.isAuthenticated);
       if (!store.getters.isAuthenticated) {
         next({ name: 'Login' }); // Redirect to login if not authenticated
       } else {

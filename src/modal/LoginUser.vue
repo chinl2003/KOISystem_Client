@@ -52,10 +52,10 @@
         this.$router.push('/'); 
         this.closeModal()
         if(getUserRole().includes('Member')){
-          this.$router.push('/customer'); 
+          this.$router.push('/home'); 
         }
         if(getUserRole().includes('Admin')){
-          this.$router.push('/'); 
+          this.$router.push('/admin'); 
         }
       } catch (error) {
         console.error('Login failed:', error);
@@ -80,6 +80,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 10000;
   }
   
   .modal-content {

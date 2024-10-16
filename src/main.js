@@ -16,13 +16,12 @@ import { fas } from '@fortawesome/free-solid-svg-icons' // Solid icons
 import { far } from '@fortawesome/free-regular-svg-icons' // Regular icons
 import { fab } from '@fortawesome/free-brands-svg-icons' // Brand icons
 import './index.css'
-
+import 'vue-toastification/dist/index.css'
 // Add the icons to the library
 library.add(fas, far, fab)
 const app = createApp(App)
 app.component('font-awesome-icon', FontAwesomeIcon)
-
+store.dispatch('checkAuth');
 app.use(router)
 app.use(store)
-
 app.mount('#app')

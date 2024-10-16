@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getToken } from "../utils/auth";
 import { SYS_API_URL } from "../constants/global";
-import { toastError } from "@/utils/toast";
+import { toastError, toastWarning } from "@/utils/toast";
 const apiClient =  axios.create({
     baseURL: SYS_API_URL,
 });
@@ -29,16 +29,19 @@ const handleError = (error) => {
     if (error.response) {
         switch (error.response.status) {
             case 401:
-                toastError('Unauthorized. Please login.');
+                toastWarning(error.response.data.errorMessage || 'Unauthorized. Please login.');
                 break;
             case 403:
-                toastError('Forbidden. You do not have permission to access this resource.');
+                toastWarning(error.response.data.errorMessage || 'Forbidden. You do not have permission to access this resource.');
                 break;
             case 404:
-                toastError('Resource not found.');
+                toastWarning(error.response.data.errorMessage || 'Resource not found.');
                 break;
+            case 400:
+            toastWarning(error.response.data.errorMessage || 'An error occurred. Please try again later.');
+            break;
             default:
-                toastError('An error occurred. Please try again later.');
+                toastError(error.response.data.errorMessage || 'An error occurred. Please try again later.');
         }
     } else if (error.request) {
         console.log(error)
