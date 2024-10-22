@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '@/pages/HomePage.vue'
 import CustomerPage from '@/pages/CustomerPage.vue'
+import NewsPage from '@/pages/NewsPage.vue'
 import CompetitionPage from '@/pages/CompetitionPage.vue'
 import AdminPage from '@/pages/AdminPage.vue'
 import RegisterKoiFishPage from '@/pages/RegisterKoiFishPage.vue'
@@ -28,6 +29,11 @@ const routes = [
     path: '/competition',
     name: 'CompetitionPage',
     component: CompetitionPage
+  },
+  {
+    path: '/news',
+    name: 'NewsPage',
+    component: NewsPage
   },
   {
     path: '/login',

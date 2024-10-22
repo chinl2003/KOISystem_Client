@@ -14,10 +14,10 @@
             <a class="nav-link" href="/competition">Cuộc thi</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/category">Thể loại</a>
+            <a class="nav-link" href="/news">Tin tức</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/news">Tin tức</a>
+            <a class="nav-link" href="/guide">Hướng dẫn</a>
           </li>
         </ul>
       </div>
