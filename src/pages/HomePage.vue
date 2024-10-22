@@ -26,27 +26,49 @@
       </section>
 
       <section class="tw-px-5 tw-md:tw-px-30 tw-mt-12">
-        <div class="tw-text-2xl tw-md:tw-text-4xl tw-mb-5 tw-text-center">Kết quả chung cuộc giải đấu A</div>
+        <div class="tw-text-2xl tw-md:tw-text-4xl tw-mb-5 tw-text-center">
+          Kết quả chung cuộc giải đấu A
+        </div>
         <div class="tw-grid tw-grid-cols-1 tw-md:tw-grid-cols-2 tw-gap-5">
           <div class="tw-flex tw-flex-col tw-items-center tw-text-center tw-w-full">
-            <img src="@/assets/images/koi-a-mature.png" class="tw-w-full tw-aspect-square tw-object-cover" />
-            <div class="tw-pt-5 tw-text-lg tw-md:tw-text-xl tw-font-bold">Koi A- Giải nhất -Hạng mature</div>
+            <img
+              src="@/assets/images/koi-a-mature.png"
+              class="tw-w-full tw-aspect-square tw-object-cover"
+            />
+            <div class="tw-pt-5 tw-text-lg tw-md:tw-text-xl tw-font-bold">
+              Koi A- Giải nhất -Hạng mature
+            </div>
           </div>
 
           <div class="tw-flex tw-flex-col tw-items-center tw-text-center tw-w-full">
-            <img src="@/assets/images/koi-b-adult.png" class="tw-w-full tw-aspect-square tw-object-cover" />
+            <img
+              src="@/assets/images/koi-b-adult.png"
+              class="tw-w-full tw-aspect-square tw-object-cover"
+            />
             <div class="tw-pt-5 tw-text-xl tw-font-bold">Koi B- Giải nhất -Hạng adult</div>
           </div>
 
           <div class="tw-flex tw-flex-col tw-items-center tw-text-center tw-w-full">
-            <img src="@/assets/images/koi-a-young.png" class="tw-w-full tw-aspect-square tw-object-cover" />
+            <img
+              src="@/assets/images/koi-a-young.png"
+              class="tw-w-full tw-aspect-square tw-object-cover"
+            />
             <div class="tw-pt-5 tw-text-xl tw-font-bold">Koi A- Giải nhất -Hạng young</div>
           </div>
 
           <div class="tw-flex tw-flex-col tw-items-center tw-text-center tw-w-full">
-            <img src="@/assets/images/koi-b-baby.png" class="tw-w-full tw-aspect-square tw-object-cover" />
+            <img
+              src="@/assets/images/koi-b-baby.png"
+              class="tw-w-full tw-aspect-square tw-object-cover"
+            />
             <div class="tw-pt-5 tw-text-xl tw-font-bold">Koi A- Giải nhất -Hạng baby</div>
           </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="tw-flex tw-flex-col tw-justify-center tw-items-center">
+          <div class="tw-text-4xl">Đánh giá của người tham gia giải đấu A</div>
         </div>
       </section>
 
@@ -161,23 +183,63 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import HeaderBarHomePage from '@/components/HeaderBarHomePage.vue'
 import FooterHomePage from '@/components/FooterHomePage.vue'
 import { KOI_CHAMPION } from '@/constants/index.ts'
+import Review1 from '@/assets/images/reviews/review1.png'
+import Review2 from '@/assets/images/reviews/review2.png'
+import Review3 from '@/assets/images/reviews/review3.png'
+import Review4 from '@/assets/images/reviews/review4.png'
+import Review5 from '@/assets/images/reviews/review5.png'
 
-export default {
-  name: 'HomePage',
-  components: {
-    HeaderBarHomePage,
-    FooterHomePage
+const reviews = [
+  {
+    id: 1,
+    name: 'Nguyễn Văn Hùng',
+    comment:
+      'Cuộc thi tổ chức rất chuyên nghiệp, tôi rất hài lòng với quy trình chấm điểm minh bạch. Rất vui khi cá của tôi đạt giải!',
+    time: '20h',
+    rating: 4,
+    image: Review1
   },
-  data() {
-    return {
-      KOI_CHAMPION
-    }
+  {
+    id: 1,
+    name: 'Lê Thị Thanh',
+    comment:
+      'Sân khấu và khu vực thi đấu được sắp xếp khoa học, các bạn hỗ trợ rất nhiệt tình. Mong sẽ có nhiều cuộc thi hơn nữa trong tương lai!',
+    time: '20h',
+    rating: 4,
+    image: Review2
+  },
+  {
+    id: 1,
+    name: 'Nguyễn Văn Hùng',
+    comment:
+      'Cuộc thi tổ chức rất chuyên nghiệp, tôi rất hài lòng với quy trình chấm điểm minh bạch. Rất vui khi cá của tôi đạt giải!',
+    time: '20h',
+    rating: 4,
+    image: Review3
+  },
+  {
+    id: 1,
+    name: 'Nguyễn Văn Hùng',
+    comment:
+      'Cuộc thi tổ chức rất chuyên nghiệp, tôi rất hài lòng với quy trình chấm điểm minh bạch. Rất vui khi cá của tôi đạt giải!',
+    time: '20h',
+    rating: 4,
+    image: Review4
+  },
+  {
+    id: 1,
+    name: 'Nguyễn Văn Hùng',
+    comment:
+      'Cuộc thi tổ chức rất chuyên nghiệp, tôi rất hài lòng với quy trình chấm điểm minh bạch. Rất vui khi cá của tôi đạt giải!',
+    time: '20h',
+    rating: 4,
+    image: Review5
   }
-}
+]
 </script>
 
 <style scoped>
