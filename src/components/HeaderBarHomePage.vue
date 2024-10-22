@@ -8,16 +8,18 @@
       <div class="tw-flex tw-gap-12">
         <ul class="navbar-nav mx-auto mb-2 mb-lg-0 tw-flex tw-gap-24">
           <li class="nav-item">
-            <a class="nav-link" href="/">Giới thiệu</a>
+            <a class="nav-link" :class="{ active: isActive('/') }" href="/">Giới thiệu</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/competition">Cuộc thi</a>
+            <a class="nav-link" :class="{ active: isActive('/competition') }" href="/competition"
+              >Cuộc thi</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/news">Tin tức</a>
+            <a class="nav-link" :class="{ active: isActive('/news') }" href="/news">Tin tức</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/guide">Hướng dẫn</a>
+            <a class="nav-link" :class="{ active: isActive('/guide') }" href="/guide">Hướng dẫn</a>
           </li>
         </ul>
       </div>
@@ -45,6 +47,7 @@ import logo from '@/assets/images/logo.png'
 import RegisterUser from '@/modal/RegisterUser.vue'
 import LoginUser from '@/modal/LoginUser.vue'
 import { getUserFullName } from '@/utils/auth'
+import { useRoute } from 'vue-router'
 
 export default {
   name: 'NavigationBar',
@@ -59,6 +62,11 @@ export default {
       fullName: getUserFullName() ?? 'Guest',
       isRegisterModalVisible: false,
       isLoginModalVisible: false
+    }
+  },
+  computed: {
+    route() {
+      return useRoute()
     }
   },
   methods: {
@@ -86,6 +94,13 @@ export default {
       } catch (error) {
         console.error(error)
       }
+    },
+    isActive(path) {
+      console.log('🚀 ~ isActive ~ path:', path)
+      return this.route.path === path
+    },
+    naviate(path) {
+      this.$router.push(path)
     }
   },
   mounted() {
@@ -163,5 +178,10 @@ export default {
 }
 .required {
   color: red;
+}
+.active {
+  font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
 }
 </style>
