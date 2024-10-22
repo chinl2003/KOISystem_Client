@@ -10,17 +10,17 @@
         Showcase, trang web chính thức cập nhật những tin tức mới nhất và độc đáo nhất về cá Koi từ
         khắp nơi trên thế giới.
       </p>
-      <div class="flex mt-6 w-[900px] justify-between text-[16px]">
-        <div class="flex gap-2 items-center">
+      <div class="tw-flex tw-mt-6 tw-w-[900px] tw-justify-between tw-text-[16px]">
+        <div class="tw-flex tw-gap-2 tw-items-center">
           <font-awesome-icon icon="phone-volume" />
           <p>Phone: 0819790919</p>
         </div>
 
-        <div class="flex gap-2 items-center">
+        <div class="tw-flex tw-gap-2 tw-items-center">
           <font-awesome-icon icon="envelope" />
           <p>Email: koishowcase@gmail.com</p>
         </div>
-        <div class="flex gap-2 items-center">
+        <div class="tw-flex tw-gap-2 tw-items-center">
           <font-awesome-icon icon="house" />
           <p>Website: koishowcase.com</p>
         </div>

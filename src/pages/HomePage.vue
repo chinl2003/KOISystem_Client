@@ -66,10 +66,63 @@
         </div>
       </section>
 
-      <section>
-        <div class="tw-flex tw-flex-col tw-justify-center tw-items-center">
-          <div class="tw-text-4xl">Đánh giá của người tham gia giải đấu A</div>
+      <section class="tw-flex tw-flex-col tw-justify-center tw-items-center tw-mb-24">
+        <div class="tw-w-[820px]">
+          <div class="tw-text-4xl tw-font-bold tw-py-12">
+            Đánh giá của người tham gia giải đấu A
+          </div>
+          <div class="tw-flex tw-flex-col tw-gap-8 tw-mt-12">
+            <div v-for="review of reviews" class="tw-flex tw-gap-4 tw-items-start">
+              <img :src="review.image" class="tw-w-20 tw-h-20" />
+              <div class="tw-flex tw-flex-col tw-gap-4">
+                <div class="tw-text-[#385898] tw-text-2xl">{{ review.name }}</div>
+                <div class="tw-text-xl">{{ review.comment }}</div>
+                <div class="tw-flex">
+                  <div class="tw-text-[#90949C]">{{ review.time }}</div>
+                  <div class="tw-flex">
+                    <img :src="StarIcon" alt="star" class="tw-w-5 tw-h-5 tw-ml-2" />
+                    <img :src="StarIcon" alt="star" class="tw-w-5 tw-h-5 tw-ml-2" />
+                    <img :src="StarIcon" alt="star" class="tw-w-5 tw-h-5 tw-ml-2" />
+                    <img :src="StarIcon" alt="star" class="tw-w-5 tw-h-5 tw-ml-2" />
+                    <img :src="StarIcon" alt="star" class="tw-w-5 tw-h-5 tw-ml-2" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tw-flex tw-w-full tw-mt-12 tw-gap-4">
+            <img :src="Review5" class="tw-w-20 tw-h-20" />
+            <div class="tw-w-full tw-flex tw-flex-col">
+              <input
+                placeholder="Ý kiến của bạn tại đây"
+                class="tw-w-full tw-border tw-pt-4 tw-px-4 tw-pb-12"
+              />
+              <div class="tw-flex tw-justify-between tw-bg-[#F5F6F7] tw-px-4 tw-pt-12 tw-pb-4">
+                <div>
+                  Đánh giá tại đây
+                  <div class="tw-flex">
+                    <img :src="UnstartIcon" alt="un-start" />
+                    <img :src="UnstartIcon" alt="un-start" />
+                    <img :src="UnstartIcon" alt="un-start" />
+                    <img :src="UnstartIcon" alt="un-start" />
+                    <img :src="UnstartIcon" alt="un-start" />
+                  </div>
+                </div>
+                <button
+                  class="tw-bg-[#A1B3D5] tw-w-fit tw-px-6 tw-py-2 tw-rounded tw-text-[#FFFFFF]"
+                >
+                  Đăng
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+        <button
+          class="tw-bg-[#DF0C00] tw-w-fit tw-px-12 tw-py-4 tw-rounded tw-text-[#FFFFFF] tw-mt-12 tw-text-2xl"
+        >
+          Tải thêm 20 đánh giá
+        </button>
       </section>
 
       <section id="nationality">
@@ -178,6 +231,135 @@
           </div>
         </div>
       </section>
+      <section id="prize">
+        <div class="tw-flex tw-w-full tw-bg-[#EFE9D9] tw-pt-12 tw-pb-24">
+          <div class="tw-w-1/3 tw-flex tw-flex-col tw-items-start tw-px-12 tw-gap-6">
+            <img :src="KoiFarm" alt="koi-farm" class="tw-w-[160px]" />
+            <div>
+              Kodama Koi Farm is the premier destination for quality Japanese koi fish for sale. We
+              are the largest importer of Koi in North America. We specialize in raising champion
+              koi!
+            </div>
+            <div>
+              <div>P.O. Box 893086, Mililani HI 96789</div>
+              <div>TEL: +1 (833) Koi Love (1-833-564-5683)</div>
+              <div>Email: info@kodamakoifarm.com</div>
+              <div>Help: info@kodamakoifarm.com</div>
+            </div>
+
+            <div>
+              Hours of Operation <br />
+              Monday – Friday <br />
+              7:00 a.m. to 3:00 p.m. HST
+              <br />
+              Saturday and Sunday Closed
+            </div>
+          </div>
+          <div class="tw-w-1/3 tw-flex tw-flex-col tw-items-start tw-px-12 tw-gap-6">
+            <div class="tw-text-xl tw-text-[#DF0C00]">AWARD-WINNING JAPANESE KOI DEALER</div>
+            <div>
+              We are proud to be members of many Japanese Nishikigoi organizations and to have
+              multiple winners in the All Japan Koi Shows.
+            </div>
+            <img :src="KoiPrize" alt="koi-farm" class="tw-w-[260px]" />
+            <img :src="KoiInfo" alt="koi-farm" class="tw-w-[260px]" />
+            <div class="tw-text-xl tw-text-[#DF0C00]">VISIT OUR LOCAL STORES</div>
+            <ul>
+              <li>Kodama Koi Garden In Florida</li>
+              <li>Kodama Koi Garden In New York</li>
+              <li>Kodama Koi Garden In New Jersey</li>
+            </ul>
+            <img :src="PaymentCard" alt="koi-farm" class="tw-w-[260px]" />
+          </div>
+          <div class="tw-w-1/3 tw-flex tw-flex-col tw-items-start tw-px-12 tw-gap-6">
+            <div class="tw-text-xl tw-text-[#DF0C00]">Account Information</div>
+            <ul class="tw-underline tw-pl-4">
+              <li><a href="https://www.kodamakoifarm.com/instructions/">Welcome!</a></li>
+              <li><a href="https://www.kodamakoifarm.com/my-account/">My Account</a></li>
+              <li>
+                <a href="https://www.kodamakoifarm.com/my-account/reset-password/"
+                  >Reset Password</a
+                >
+              </li>
+              <li>
+                <a href="https://www.kodamakoifarm.com/my-account/lost-password/">Lost Password</a>
+              </li>
+              <li><a href="https://www.kodamakoifarm.com/wholesale/">Wholesale Sign Up</a></li>
+              <li>
+                <a href="https://www.kodamakoifarm.com/my-account/edit-account/">Edit Account</a>
+              </li>
+              <li>
+                <a href="https://www.kodamakoifarm.com/my-account/payment-methods/"
+                  >Add Payment Method</a
+                >
+              </li>
+              <li>
+                <a href="https://www.kodamakoifarm.com/my-account/customer-logout/">Logout</a>
+              </li>
+            </ul>
+
+            <div class="tw-text-xl tw-text-[#DF0C00]">For Koi Lovers!</div>
+            <ul class="tw-underline tw-pl-4">
+              <li>
+                <a href="https://www.kodamakoifarm.com/what-is-nishikigoi-history-meaning/"
+                  >What is a Nishikigo?</a
+                >
+              </li>
+              <li>
+                <a href="https://www.kodamakoifarm.com/how-much-do-koi-fish-cost/"
+                  >How Much Do Koi Fish Cost?</a
+                >
+              </li>
+              <li>
+                <a href="https://www.kodamakoifarm.com/koi-care-after-receiving/"
+                  >How To Care For Your Koi Fish?</a
+                >
+              </li>
+              <li>
+                <a href="https://www.kodamakoifarm.com/types-of-pond-fish-small-large-ponds/"
+                  >Types of Pond Fish</a
+                >
+              </li>
+              <li>
+                <a href="https://www.kodamakoifarm.com/koi-quarantine-tank-setup-procedure/"
+                  >Koi Quarantine Tank Setup</a
+                >
+              </li>
+              <li>
+                <a href="https://www.kodamakoifarm.com/how-can-i-safely-transport-koi-fish/"
+                  >How Can I Move My Koi Fish?</a
+                >
+              </li>
+              <li>
+                <a href="https://www.kodamakoifarm.com/benefits-salt-koi-pond-why-should-use-it/"
+                  >Benefits of Salt in Koi Pond</a
+                >
+              </li>
+              <li>
+                <a href="https://www.kodamakoifarm.com/how-to-make-medicated-koi-food/"
+                  >Make Medicated Koi Food at Home</a
+                >
+              </li>
+              <li>
+                <a href="https://www.kodamakoifarm.com/winter-koi-pond-preparation-survival/"
+                  >Koi Pond Winter Survival Guide</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.kodamakoifarm.com/raising-koi-fish-for-profit-business-hobbyist/"
+                  >Raising Koi Fish for Profit</a
+                >
+              </li>
+              <li>
+                <a href="https://www.kodamakoifarm.com/koi-show-competition-tips-preparation/"
+                  >Koi Show Preparation Tips</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
     </div>
     <FooterHomePage />
   </div>
@@ -186,13 +368,17 @@
 <script setup>
 import HeaderBarHomePage from '@/components/HeaderBarHomePage.vue'
 import FooterHomePage from '@/components/FooterHomePage.vue'
-import { KOI_CHAMPION } from '@/constants/index.ts'
 import Review1 from '@/assets/images/reviews/review1.png'
 import Review2 from '@/assets/images/reviews/review2.png'
 import Review3 from '@/assets/images/reviews/review3.png'
 import Review4 from '@/assets/images/reviews/review4.png'
 import Review5 from '@/assets/images/reviews/review5.png'
-
+import StarIcon from '@/assets/svg/star.svg'
+import UnstartIcon from '@/assets/svg/un-star.svg'
+import KoiFarm from '@/assets/images/koi-farm.png'
+import KoiPrize from '@/assets/images/koi-prize.png'
+import PaymentCard from '@/assets/images/payment-card.png'
+import KoiInfo from '@/assets/images/koi-info.png'
 const reviews = [
   {
     id: 1,
@@ -204,42 +390,35 @@ const reviews = [
     image: Review1
   },
   {
-    id: 1,
+    id: 2,
     name: 'Lê Thị Thanh',
     comment:
       'Sân khấu và khu vực thi đấu được sắp xếp khoa học, các bạn hỗ trợ rất nhiệt tình. Mong sẽ có nhiều cuộc thi hơn nữa trong tương lai!',
-    time: '20h',
+    time: '23h',
     rating: 4,
     image: Review2
   },
   {
-    id: 1,
-    name: 'Nguyễn Văn Hùng',
+    id: 3,
+    name: 'Đỗ Thị Lan',
     comment:
-      'Cuộc thi tổ chức rất chuyên nghiệp, tôi rất hài lòng với quy trình chấm điểm minh bạch. Rất vui khi cá của tôi đạt giải!',
-    time: '20h',
+      '"Các giám khảo rất công tâm và có kinh nghiệm. Tôi đã có cơ hội trao đổi với những người chơi cá Koi lâu năm, rất bổ ích."',
+    time: '23h',
     rating: 4,
     image: Review3
   },
   {
-    id: 1,
-    name: 'Nguyễn Văn Hùng',
+    id: 4,
+    name: 'Phạm Quang Hải',
     comment:
-      'Cuộc thi tổ chức rất chuyên nghiệp, tôi rất hài lòng với quy trình chấm điểm minh bạch. Rất vui khi cá của tôi đạt giải!',
-    time: '20h',
-    rating: 4,
+      '"Chất lượng sự kiện vượt ngoài mong đợi. Cá của tôi không đạt giải nhưng tôi vẫn rất hài lòng với cách tổ chức chuyên nghiệp!”',
+    time: '23h',
+    rating: 5,
     image: Review4
-  },
-  {
-    id: 1,
-    name: 'Nguyễn Văn Hùng',
-    comment:
-      'Cuộc thi tổ chức rất chuyên nghiệp, tôi rất hài lòng với quy trình chấm điểm minh bạch. Rất vui khi cá của tôi đạt giải!',
-    time: '20h',
-    rating: 4,
-    image: Review5
   }
 ]
+
+const rating = 4
 </script>
 
 <style scoped>
