@@ -18,6 +18,7 @@ import RegisterPage from '@/pages/RegisterPage.vue'
 import ListCompetitionCustomerPage from '@/pages/ListCompetitionCustomerPage.vue'
 
 import ListRegisteKoiFishAdminPage from '@/pages/ListRegisteKoiFishAdminPage.vue'
+import GuidePage from '@/pages/GuidePage.vue'
 
 const routes = [
   {
@@ -34,6 +35,11 @@ const routes = [
     path: '/news',
     name: 'NewsPage',
     component: NewsPage
+  },
+  {
+    path: '/guide',
+    name: 'GuidePage',
+    component: GuidePage
   },
   {
     path: '/login',
