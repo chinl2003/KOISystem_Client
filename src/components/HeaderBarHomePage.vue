@@ -8,16 +8,16 @@
       <div class="tw-flex tw-gap-12">
         <ul class="navbar-nav mx-auto mb-2 mb-lg-0 tw-flex tw-gap-24">
           <li class="nav-item">
-            <a class="nav-link" href="#introduction">Giới thiệu</a>
+            <a class="nav-link" href="/">Giới thiệu</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#nationality">Cuộc thi</a>
+            <a class="nav-link" href="/competition">Cuộc thi</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#category">Thể loại</a>
+            <a class="nav-link" href="/category">Thể loại</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#news">Tin tức</a>
+            <a class="nav-link" href="/news">Tin tức</a>
           </li>
         </ul>
       </div>
@@ -44,7 +44,7 @@
 import logo from '@/assets/images/logo.png'
 import RegisterUser from '@/modal/RegisterUser.vue'
 import LoginUser from '@/modal/LoginUser.vue'
-import { getUserFullName } from '@/utils/auth';
+import { getUserFullName } from '@/utils/auth'
 
 export default {
   name: 'NavigationBar',
@@ -56,7 +56,7 @@ export default {
     return {
       logo,
       showMenu: false,
-      fullName: getUserFullName() ?? "Guest",
+      fullName: getUserFullName() ?? 'Guest',
       isRegisterModalVisible: false,
       isLoginModalVisible: false
     }
@@ -78,15 +78,15 @@ export default {
       this.isLoginModalVisible = true
       this.showMenu = false
     },
-    logout(){
+    logout() {
       try {
-        console.log("test")
-        this.$store.dispatch('logout');
-        this.$router.push('/'); 
+        console.log('test')
+        this.$store.dispatch('logout')
+        this.$router.push('/')
       } catch (error) {
-        console.error(error);
+        console.error(error)
       }
-    },
+    }
   },
   mounted() {
     document.addEventListener('click', this.handleClickOutside)
