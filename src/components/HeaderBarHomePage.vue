@@ -8,16 +8,18 @@
       <div class="tw-flex tw-gap-12">
         <ul class="navbar-nav mx-auto mb-2 mb-lg-0 tw-flex tw-gap-24">
           <li class="nav-item">
-            <a class="nav-link" href="#introduction">Giới thiệu</a>
+            <a class="nav-link" :class="{ active: isActive('/') }" href="/">Giới thiệu</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#nationality">Cuộc thi</a>
+            <a class="nav-link" :class="{ active: isActive('/competition') }" href="/competition"
+              >Cuộc thi</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#category">Thể loại</a>
+            <a class="nav-link" :class="{ active: isActive('/news') }" href="/news">Tin tức</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#news">Tin tức</a>
+            <a class="nav-link" :class="{ active: isActive('/guide') }" href="/guide">Hướng dẫn</a>
           </li>
         </ul>
       </div>
@@ -44,7 +46,8 @@
 import logo from '@/assets/images/logo.png'
 import RegisterUser from '@/modal/RegisterUser.vue'
 import LoginUser from '@/modal/LoginUser.vue'
-import { getUserFullName } from '@/utils/auth';
+import { getUserFullName } from '@/utils/auth'
+import { useRoute } from 'vue-router'
 
 export default {
   name: 'NavigationBar',
@@ -56,9 +59,14 @@ export default {
     return {
       logo,
       showMenu: false,
-      fullName: getUserFullName() ?? "Guest",
+      fullName: getUserFullName() ?? 'Guest',
       isRegisterModalVisible: false,
       isLoginModalVisible: false
+    }
+  },
+  computed: {
+    route() {
+      return useRoute()
     }
   },
   methods: {
@@ -78,15 +86,22 @@ export default {
       this.isLoginModalVisible = true
       this.showMenu = false
     },
-    logout(){
+    logout() {
       try {
-        console.log("test")
-        this.$store.dispatch('logout');
-        this.$router.push('/'); 
+        console.log('test')
+        this.$store.dispatch('logout')
+        this.$router.push('/')
       } catch (error) {
-        console.error(error);
+        console.error(error)
       }
     },
+    isActive(path) {
+      console.log('🚀 ~ isActive ~ path:', path)
+      return this.route.path === path
+    },
+    naviate(path) {
+      this.$router.push(path)
+    }
   },
   mounted() {
     document.addEventListener('click', this.handleClickOutside)
@@ -163,5 +178,10 @@ export default {
 }
 .required {
   color: red;
+}
+.active {
+  font-weight: bold;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
 }
 </style>

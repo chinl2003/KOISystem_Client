@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomePage from '@/pages/HomePage.vue'
 import CustomerPage from '@/pages/CustomerPage.vue'
+import NewsPage from '@/pages/NewsPage.vue'
+import CompetitionPage from '@/pages/CompetitionPage.vue'
 import AdminPage from '@/pages/AdminPage.vue'
 import RegisterKoiFishPage from '@/pages/RegisterKoiFishPage.vue'
 import ListKoiFishCustomerPage from '@/pages/ListKoiFishCustomerPage.vue'
@@ -10,18 +12,34 @@ import ListRoundCompetitionPage from '@/pages/ListRoundCompetitionPage.vue'
 import ListFormatCompetitionPage from '@/pages/ListFormatCompetitionPage.vue'
 import ListRewardCompetitionPage from '@/pages/ListRewardCompetitionPage.vue'
 import VnPayCallBack from '@/pages/VnPayCallBack.vue'
-import store from "@/store/store";
+import store from '@/store/store'
 import LoginPage from '@/pages/LoginPage.vue'
 import RegisterPage from '@/pages/RegisterPage.vue'
 import ListCompetitionCustomerPage from '@/pages/ListCompetitionCustomerPage.vue'
 
 import ListRegisteKoiFishAdminPage from '@/pages/ListRegisteKoiFishAdminPage.vue'
+import GuidePage from '@/pages/GuidePage.vue'
 
 const routes = [
   {
     path: '/',
     name: 'HomePage',
     component: HomePage
+  },
+  {
+    path: '/competition',
+    name: 'CompetitionPage',
+    component: CompetitionPage
+  },
+  {
+    path: '/news',
+    name: 'NewsPage',
+    component: NewsPage
+  },
+  {
+    path: '/guide',
+    name: 'GuidePage',
+    component: GuidePage
   },
   {
     path: '/login',
@@ -78,7 +96,8 @@ const routes = [
         path: 'list-format-competition',
         name: 'ListFormatCompetitionPage',
         component: ListFormatCompetitionPage
-      },{
+      },
+      {
         path: 'list-reward-competition',
         name: 'ListRewardCompetitionPage',
         component: ListRewardCompetitionPage
@@ -92,7 +111,7 @@ const routes = [
         path: 'list-competition-customer',
         name: 'ListCompetitionCustomerPage',
         component: ListCompetitionCustomerPage
-      },
+      }
     ]
   },
   {
@@ -104,28 +123,29 @@ const routes = [
     path: '/list-koi-fish-admin',
     name: 'ListRegisteKoiFishAdminPage',
     component: ListRegisteKoiFishAdminPage
-  },
+  }
 ]
 
 const router = createRouter({
-  history: createWebHistory('/'), 
+  history: createWebHistory('/'),
   routes
 })
-  router.beforeEach((to, from, next) => {
-    if (to.matched.some(record => record.meta.requiresAuth)) {
-      console.log(store.getters.isAuthenticated);
-      if (!store.getters.isAuthenticated) {
-        next({ name: 'Login' }); // Redirect to login if not authenticated
-      } else {
-        const userRoles = store.getters.roles;
-        const requiredRoles = to.meta.roles;
-        if (requiredRoles && !requiredRoles.some(role => userRoles.includes(role))) {
-          next({ name: 'Home' }); // Redirect to home if user lacks required role
-        } else {
-          next();
-        }
-      }
+router.beforeEach((to, from, next) => {
+  if (to.matched.some((record) => record.meta.requiresAuth)) {
+    console.log(store.getters.isAuthenticated)
+    if (!store.getters.isAuthenticated) {
+      next({ name: 'Login' }) // Redirect to login if not authenticated
     } else {
-      next();
-    }})
-export default router                                     
+      const userRoles = store.getters.roles
+      const requiredRoles = to.meta.roles
+      if (requiredRoles && !requiredRoles.some((role) => userRoles.includes(role))) {
+        next({ name: 'Home' }) // Redirect to home if user lacks required role
+      } else {
+        next()
+      }
+    }
+  } else {
+    next()
+  }
+})
+export default router
